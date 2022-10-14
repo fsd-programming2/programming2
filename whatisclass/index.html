@@ -1,0 +1,913 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This page describes exercises for Programming Practice 2 in FSD course.">
+      
+      
+        <meta name="author" content="Yohei Murakami">
+      
+      
+        <link rel="canonical" href="https://si-ritsumei.github.io/programming2/whatisclass/">
+      
+      <link rel="icon" href="../image/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>復習：クラスとは - プログラミング演習2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JKE5QGM6SL"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-JKE5QGM6SL",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKE5QGM6SL"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="プログラミング演習2" class="md-header__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミング演習2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              復習：クラスとは
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="プログラミング演習2" class="md-nav__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    プログラミング演習2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Week 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index2/" class="md-nav__link">
+        Week 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index3/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index6/" class="md-nav__link">
+        Week 6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index7/" class="md-nav__link">
+        Week 7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index8/" class="md-nav__link">
+        Week 8
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index9/" class="md-nav__link">
+        Week 9
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index10/" class="md-nav__link">
+        Week 10
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index11/" class="md-nav__link">
+        Week 11
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index12/" class="md-nav__link">
+        Week 12
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          復習：クラスとは
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        復習：クラスとは
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    複数の異なるデータを扱う
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    クラスの定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インスタンスを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    インスタンスの属性にアクセスする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    クラスにメソッドを追加する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    メソッドを利用する
+  </a>
+  
+    <nav class="md-nav" aria-label="メソッドを利用する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リストを使ってプログラムの冗長な部分をまとめ上げる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    継承を使って同一メソッドの実装を変える
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ポリモーフィズムを使う
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errorlist/" class="md-nav__link">
+        Pythonの基本的なエラー一覧
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    複数の異なるデータを扱う
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    クラスの定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    インスタンスを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    インスタンスの属性にアクセスする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    クラスにメソッドを追加する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    メソッドを利用する
+  </a>
+  
+    <nav class="md-nav" aria-label="メソッドを利用する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    リストを使ってプログラムの冗長な部分をまとめ上げる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    継承を使って同一メソッドの実装を変える
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ポリモーフィズムを使う
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="_1">クラスとは<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">目的</p>
+<p>クラスの意義を知る。</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">キーワード</p>
+<ul>
+<li>クラス、属性</li>
+<li>インスタンス、インスタンス変数</li>
+<li>メソッド</li>
+<li>継承、サブクラス</li>
+<li>ポリモーフィズム</li>
+</ul>
+</div>
+<h2 id="_2">複数の異なるデータを扱う<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>対応づけられる複数の情報を処理するプログラムを考えよう。</p>
+<ul>
+<li>例：学生の<em>名前</em>と<em>履修科目の成績</em></li>
+<li>学生の名前リストと履修科目のリストを作り、同一学生の名前と履修科目を同じ順番（インデックス）で対応づけて管理すると…</li>
+</ul>
+<div class="highlight"><span class="filename">リスト間の対応付け</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;太郎&#39;</span><span class="p">,</span> <span class="s1">&#39;次郎&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">classes_list</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;データベース&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;人工知能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}]</span>
+</code></pre></div>
+<p><mark>これは学生の名前と履修科目の対応が暗黙的なので、言葉による説明が必要となる！</mark></p>
+<ul>
+<li>同一学生の名前と履修科目をリストでまとめて管理すると…</li>
+</ul>
+<div class="highlight"><span class="filename">リストによるグループ化</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">students</span> <span class="o">=</span><span class="p">[[</span><span class="s1">&#39;太郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;データベース&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">}],</span> <span class="p">[</span><span class="s1">&#39;次郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;人工知能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">}]]</span>
+</code></pre></div>
+<p><mark>これは学生の名前や履修科目がリストの何番目かを言葉で説明する必要がある！</mark></p>
+<h2 id="_3">クラスの定義<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>複数の異なるデータの対応関係を明確にするために<strong>クラス</strong>を使おう。</p>
+<p>クラスでまとめられた各変数を<strong>属性</strong>という。</p>
+<ul>
+<li>名前と履修科目を一塊に扱うことができる</li>
+<li>名前を格納する変数<code>name</code>と、履修科目ごとの成績を格納する変数<code>classes</code>を持つ<code>Student</code>クラスを定義</li>
+</ul>
+<div class="highlight"><span class="filename">クラスの定義</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># 学生名を格納する属性（name）</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span>  <span class="c1"># 履修科目とその成績を格納する属性（classes）</span>
+</code></pre></div>
+<h2 id="_4">インスタンスを作る<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>クラスから具体的な属性の値を持つオブジェクトを作る。このオブジェクトを<strong>インスタンス</strong>という。</p>
+<p>また、インスタンスごとに固有の値を持つ属性のことを<strong>インスタンス変数</strong>という。</p>
+<ul>
+<li><code>Student</code>インスタンスを作ることで、一人の学生の名前と履修科目の関係が明確になる</li>
+</ul>
+<p>作り方は以下の通り。</p>
+<p><code>変数名 = クラス名(インスタンス変数の初期値)</code></p>
+<div class="highlight"><span class="filename">インスタンス生成</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">taro</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;太郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;データベース&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">jiro</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;次郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;人工知能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+</code></pre></div>
+<h2 id="_5">インスタンスの属性にアクセスする<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>インスタンスの属性値を表示する。</p>
+<p>属性へのアクセス方法は以下の通り。</p>
+<p><code>インスタンス名.属性名</code></p>
+<div class="highlight"><span class="filename">属性の参照</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">の履修科目は</span><span class="si">{}</span><span class="s1">です。&#39;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">taro</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;、&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">taro</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span> <span class="c1"># keys()で辞書のキーのリストを取得</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">jiro</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;、&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">jiro</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+</code></pre></div>
+<p><mark>これは、インスタンスの外のプログラムが、インスタンスの属性を参照して表示している。</mark></p>
+<h2 id="_6">クラスにメソッドを追加する<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>自分の属性を使った機能をインスタンス自身に埋め込んだものが<strong>メソッド</strong>。</p>
+<ul>
+<li>例：<code>Student</code>クラスに自己紹介する機能やGPAを計算させる機能を持たせる</li>
+<li>科目ごとの成績は伝えたくないけど全体のGPAだけなら伝えてもいいというときに便利</li>
+</ul>
+<p>メソッド内で自身の属性の値を参照するには<code>self.属性名</code>でOK。</p>
+<div class="highlight"><span class="filename">メソッドの定義</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">classes</span><span class="p">):</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="n">classes</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;私の名前は</span><span class="si">{}</span><span class="s1">です。私の履修科目は</span><span class="si">{}</span><span class="s1">です。&#39;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;、&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="k">def</span> <span class="nf">calculateGPA</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="n">gpa</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="k">for</span> <span class="n">grade</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>  <span class="c1"># values()で辞書の値のリストを取得</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>            <span class="n">gpa</span> <span class="o">+=</span> <span class="n">grade</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="k">return</span> <span class="n">gpa</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>  <span class="c1"># 成績の平均を返す</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="n">taro</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;太郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;データベース&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="n">jiro</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s1">&#39;次郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;人工知能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+</code></pre></div>
+<h2 id="_7">メソッドを利用する<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>メソッドを利用することでインスタンスの属性値を使った処理結果が得られる。</p>
+<ul>
+<li><code>introduce</code>メソッドで<code>name</code>属性の値を標準出力</li>
+<li><code>calculateGPA</code>メソッドで<code>classes</code>属性の値の平均を返す</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">標準出力と返り値</p>
+<p>標準出力はターミナル上に文字や数値を表示させるだけで、関数の出力とは別物。<br />
+試しに<code>y = print('hello')</code>というように<code>print</code>関数の出力を変数に代入して、その変数に何が代入されるか確認してみよう！</p>
+<p>一方、関数の結果を出力するには<code>return</code>を使おう。<code>return</code>によって返される出力値のことを<strong>返り値</strong>という。<br />
+返り値は変数に代入可能なので、<mark>ある関数の結果を他の処理で使いたい場合は、その結果を必ず<code>return</code>で返すようにしよう！</mark></p>
+</div>
+<p>メソッドの利用方法は以下の通り。</p>
+<p><code>インスタンス名.メソッド名(メソッドの実引数)</code></p>
+<div class="highlight"><span class="filename">メソッド呼び出し</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">taro</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">jiro</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+</code></pre></div>
+<p><mark>多くのインスタンスのメソッドを利用する場合、このプログラムだと冗長になる。</mark></p>
+<h3 id="_8">リストを使ってプログラムの冗長な部分をまとめ上げる<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>同じクラスのインスタンスをリストに格納すると、<code>for</code>文を用いることで、同じメソッドを利用するプログラムをまとめて書くことができる。</p>
+<div class="highlight"><span class="filename">for文による全インスタンスのメソッド呼び出し</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="n">taro</span><span class="p">,</span> <span class="n">jiro</span><span class="p">]</span>  <span class="c1"># 学生が増えればこのリストの要素を増やすだけ</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="p">:</span>  <span class="c1"># この2行は変更不要</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">student</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><span class="filename">全インスタンスのメソッドの返り値を利用</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">top_student</span> <span class="o">=</span> <span class="n">students</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 学生リストの先頭を仮の成績トップの学生とする</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>  <span class="c1"># 学生リストの二人目以降と仮の成績トップ学生の成績を比較</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="k">if</span> <span class="n">student</span><span class="o">.</span><span class="n">calculateGPA</span><span class="p">()</span> <span class="o">&gt;</span> <span class="n">top_student</span><span class="o">.</span><span class="n">calculateGPA</span><span class="p">():</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="n">top_student</span> <span class="o">=</span> <span class="n">student</span>  <span class="c1"># 仮の成績トップ学生を更新</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GPAが一番高いのは</span><span class="si">{}</span><span class="s1">さんで、GPAが</span><span class="si">{}</span><span class="s1">です。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">top_student</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">top_student</span><span class="o">.</span><span class="n">calculateGPA</span><span class="p">()))</span>
+</code></pre></div>
+<h2 id="_9">継承を使って同一メソッドの実装を変える<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>同一メソッドでもインスタンスの種類によって振る舞いを変える。</p>
+<ul>
+<li><code>Student</code>インスタンスはどれも日本語による自己紹介</li>
+<li>母語に応じて自己紹介の機能を変えたい</li>
+</ul>
+<p>機能を作り替えたい場合、親クラスを<strong>継承</strong>して、新しいクラスを作る。このようなクラスのことを<strong>サブクラス</strong>という。</p>
+<ul>
+<li><code>Student</code>クラスを継承して、以下のサブクラスを作る<ul>
+<li>日本語で自己紹介する<code>JapaneseStudent</code>クラス</li>
+<li>英語で自己紹介する<code>EnglishStudent</code>クラス</li>
+<li>中国語で自己紹介する<code>ChineseStudent</code>クラス</li>
+</ul>
+</li>
+</ul>
+<p>親クラスを継承してサブクラスを定義する方法は以下の通り。</p>
+<p><code>class サブクラス名(親クラス名):</code></p>
+<div class="highlight"><span class="filename">サブクラス</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span> <span class="nc">JapaneseStudent</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;私の名前は</span><span class="si">{}</span><span class="s1">です。私の履修科目は</span><span class="si">{}</span><span class="s1">です。&#39;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;、&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">class</span> <span class="nc">EnglishStudent</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;My name is </span><span class="si">{}</span><span class="s1">. I take </span><span class="si">{}</span><span class="s1">.&#39;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="k">class</span> <span class="nc">ChineseStudent</span><span class="p">(</span><span class="n">Student</span><span class="p">):</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;我叫</span><span class="si">{}</span><span class="s1">. 我正在学习</span><span class="si">{}</span><span class="s1">.&#39;</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;和&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="o">.</span><span class="n">keys</span><span class="p">())))</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="n">taro</span> <span class="o">=</span> <span class="n">JapaneseStudent</span><span class="p">(</span><span class="s1">&#39;太郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;データベース&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">})</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="n">jiro</span> <span class="o">=</span> <span class="n">JapaneseStudent</span><span class="p">(</span><span class="s1">&#39;次郎&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;アルゴリズム&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;人工知能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="n">mike</span> <span class="o">=</span> <span class="n">EnglishStudent</span><span class="p">(</span><span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Algorithm&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Artificial Intelligence&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="n">zhang</span> <span class="o">=</span> <span class="n">ChineseStudent</span><span class="p">(</span><span class="s1">&#39;张&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;编程语言&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;人工智能&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+</code></pre></div>
+<h2 id="_10">ポリモーフィズムを使う<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>実装の異なる同一名のメソッドを備えたインスタンスを区別なく利用できることを<strong>ポリモーフィズム</strong>という。</p>
+<p>同一名のメソッドを同じように利用しても、各クラスで実装が異なるので、インスタンスに応じて振る舞いを変えることができる。</p>
+<div class="highlight"><span class="filename">ポリモーフィズム</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="n">taro</span><span class="p">,</span> <span class="n">jiro</span><span class="p">,</span> <span class="n">mike</span><span class="p">,</span> <span class="n">zhang</span><span class="p">]</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">students</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    <span class="n">student</span><span class="o">.</span><span class="n">introduce</span><span class="p">()</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1"># 私の名前は太郎です。私の履修科目はアルゴリズム、データベースです。</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># 私の名前は次郎です。私の履修科目はアルゴリズム、人工知能です。</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># My name is Mike. I take Algorithm, Artificial Intelligence.</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># 我叫张. 我正在学习编程语言和人工智能.</span>
+</code></pre></div>
+<!-- ``` py title="ポリモーフィズム"
+top_student = students[0]
+for student in students[1:]:
+    if student.calculateGPA() > top_student.calculateGPA():
+        top_student = student
+print('GPAが一番高いのは{}さんで、GPAが{}です。'.format(top_student.name, top_student.calculateGPA()))
+
+# GPAが一番高いのは张さんで、GPAが4.5です。
+``` -->
+
+<ul>
+<li>インスタンスごとに自己紹介する言語とデータの言語が一致するのは、データと機能（メソッド）がクラスとして一塊にまとめられているから。</li>
+<li>データと機能を分けて作っていると、「My name is 太郎.」のように異なる言語で組み合わせてしまう危険性がある！</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index12/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 12" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Week 12
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../errorlist/" class="md-footer__link md-footer__link--next" aria-label="次: Pythonの基本的なエラー一覧" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              Pythonの基本的なエラー一覧
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "navigation.top"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

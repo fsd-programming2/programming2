@@ -1,0 +1,872 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This page describes exercises for Programming Practice 2 in FSD course.">
+      
+      
+        <meta name="author" content="Yohei Murakami">
+      
+      
+        <link rel="canonical" href="https://si-ritsumei.github.io/programming2/index12/">
+      
+      <link rel="icon" href="../image/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Week 12 - プログラミング演習2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JKE5QGM6SL"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-JKE5QGM6SL",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKE5QGM6SL"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-12-2022714" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="プログラミング演習2" class="md-header__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミング演習2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 12
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="プログラミング演習2" class="md-nav__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    プログラミング演習2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Week 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index2/" class="md-nav__link">
+        Week 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index3/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index6/" class="md-nav__link">
+        Week 6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index7/" class="md-nav__link">
+        Week 7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index8/" class="md-nav__link">
+        Week 8
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index9/" class="md-nav__link">
+        Week 9
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index10/" class="md-nav__link">
+        Week 10
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index11/" class="md-nav__link">
+        Week 11
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 12
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 12
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：幅優先探索で全てのノードを辿る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：最短パスを見つける
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：深さ優先探索で全ノードを辿る
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whatisclass/" class="md-nav__link">
+        復習：クラスとは
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errorlist/" class="md-nav__link">
+        Pythonの基本的なエラー一覧
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：幅優先探索で全てのノードを辿る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：最短パスを見つける
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：深さ優先探索で全ノードを辿る
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="week-12-2022714">Week 12 (2022/7/14)<a class="headerlink" href="#week-12-2022714" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">今週の目的</p>
+<p>グラフのデータを探索する。</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">今週のキーワード</p>
+<ul>
+<li>キューを用いた幅優先探索の実装</li>
+<li>最短パスの発見</li>
+<li>スタックを用いた深さ優先探索の実装</li>
+</ul>
+</div>
+<p>今回はグラフの探索プログラムとして、<strong>幅優先探索</strong>と<strong>深さ優先探索</strong>を実装する。 <mark>幅優先探索は、グラフの各点において、隣接する未訪問点全てを連続して訪問していく探索である。</mark> 一方、 <mark>深さ優先探索は、隣接する未訪問点を一つ選び、前進操作を繰り返していく探索である。</mark></p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：幅優先探索で全てのノードを辿る<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><a href="../index10/#1">前々回</a>実装した<code>Graph</code>クラスを継承して、あるノードから全てのノードを幅優先探索で探索する<code>search_with_BFS</code>メソッドを備えた<code>GraphSearch</code>クラスを定義せよ。</p>
+<p><code>GraphSearch</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">GraphSearchクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">GraphSearch</span><span class="p">()</span></code></strong> <em><code>Graph</code>クラスのサブクラス</em><br />
+グラフ上のノードを探索することができるクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>busstops</strong>: バス停情報を格納するための辞書データ（key: バス停ID、value: <code>Stop</code>インスタンス）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">search_with_BFS</span><span class="p">(</span><span class="n">start</span><span class="p">)</span></code></strong><br />
+指定されたノードから幅優先探索で全ノードを探索し最長パスを出力するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>start</strong>: 幅優先探索の開始ノードのID（文字列）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">trace_longest_path</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span></code></strong><br />
+最長のパスを表示するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>parents</strong>: 前進操作の出発点のノードと辿ったエッジを格納するための辞書データ（key: 前進操作の目的地のノード、value: 前進操作の出発地のノードと辿ったエッジのタプル）</li>
+</ul>
+</div>
+<p>また、<code>GraphSearch</code>クラスには、バス停IDとバス停名を関連付けられるように、全てのバス停の<code>Stop</code>インスタンスを格納するリストをインスタンス変数(変数名：<code>busstops</code>)として追加せよ。最後に、バスの路線データ（<code>kyotocitybus_line.dat</code>）とバス停データ（<code>kyotocitybus_stop.dat</code>）を読み込んで<code>GraphSearch</code>インスタンスを作成し、このインスタンスを用いてED01_1914から全ノードを幅優先探索して、最長（最大ホップ数）のパスを出力せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">12.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">def_graph</span> <span class="kn">import</span> <span class="n">Graph</span>  <span class="c1"># Graphクラスの読み込み</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">def_queue_stack</span> <span class="kn">import</span> <span class="n">Stack</span><span class="p">,</span> <span class="n">Queue</span>  <span class="c1"># StackクラスおよびQueueクラスの読み込み</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">def_stop</span> <span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span> <span class="nc">GraphSearch</span><span class="p">(</span><span class="n">Graph</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># Graphクラスから継承したインスタンス変数の初期化</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">busstops</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># バス停情報を格納するための辞書データ（key: バス停ID、value: Stopオブジェクト）</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span> <span class="nf">search_with_BFS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># 幅優先探索用のキューを作成</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="n">parents</span> <span class="o">=</span> <span class="p">{</span><span class="n">start</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>  <span class="c1"># 訪問したノードの一つ前のノードとエッジを格納（key: 訪問ノード、value: 一つ前のノードとエッジのタプル）</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="n">start</span><span class="p">]</span>  <span class="c1"># 訪問済みリストにstartを追加</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">start</span><span class="p">)</span>  <span class="c1"># キューに訪問済みのノードを追加</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">while</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">():</span>  <span class="c1"># キューが空でない限り以下を繰り返す</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]()</span>  <span class="c1"># 訪問済みノードを取り出し現在位置に設定</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="k">if</span> <span class="n">current</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>  <span class="c1"># 訪問中ノードが存在しなければ</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">のノードがグラフ上に存在しません。&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">current</span><span class="p">))</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>                <span class="k">return</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="n">neighbors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">current</span><span class="p">)</span>  <span class="c1"># 現在位置の隣接ノードを取得</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="p">:</span>  <span class="c1"># 隣接ノードがある限り以下を繰り返す</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>                <span class="k">if</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># 訪問先候補が未訪問であれば</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>                    <span class="n">parents</span><span class="p">[</span><span class="n">neighbor</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>  <span class="c1"># 現在位置を訪問先候補の一つ前のノードに設定</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>                    <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbor</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>  <span class="c1"># 訪問先候補を訪問済みリストに追加</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>                    <span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">neighbor</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>  <span class="c1"># 訪問済みノードをキューに追加</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trace_longest_path</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span>  <span class="c1"># 最長パスを表示</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="k">def</span> <span class="nf">trace_longest_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parents</span><span class="p">):</span>  <span class="c1"># 最長のパスを表示するメソッド</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="n">max_hops</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 最長パスのホップ数</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">longest_path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># 最長パスの経路</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">furthest_dest</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>  <span class="c1"># 最長パスの目的地</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="k">for</span> <span class="n">dest</span> <span class="ow">in</span> <span class="n">parents</span><span class="p">:</span>  <span class="c1"># 各ノードを目的地として以下の処理を繰り返す</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>            <span class="n">current</span> <span class="o">=</span> <span class="n">dest</span>  <span class="c1"># 目的地を現在位置とする</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">busstops</span><span class="p">[</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># 現在位置のバス停名を取得</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="n">hops</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># 目的地までの距離（ホップ数）を初期化</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="n">parent</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>  <span class="c1"># 現在位置の一つ前のバス停と接続するエッジのラベルを取得</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="k">while</span> <span class="n">parent</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>            <span class="c1"># 現在位置の一つ前のバス停がある限り（現在位置がスタート地点でない限り）以下を繰り返す</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>                <span class="n">current</span> <span class="o">=</span> <span class="n">parent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># 現在位置を一つ前のバス停に移動</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>                <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">busstops</span><span class="p">[</span><span class="n">current</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39; --[&#39;</span> <span class="o">+</span> <span class="n">parent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;]--&gt; &#39;</span> <span class="o">+</span> <span class="n">path</span>  
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>                <span class="c1"># 一つ前のバス停とたどったエッジのラベル（路線）をpathに連結</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>                <span class="n">hops</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># ホップ数をインクリメント</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>                <span class="n">parent</span> <span class="o">=</span> <span class="n">parents</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>  <span class="c1"># 現在位置の一つ前のバス停と接続するエッジのラベルを取得</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="k">if</span> <span class="n">hops</span> <span class="o">&gt;</span> <span class="n">max_hops</span><span class="p">:</span>  <span class="c1"># 仮の最大ホップ数を超えれば</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>                <span class="n">max_hops</span> <span class="o">=</span> <span class="n">hops</span>  <span class="c1"># 仮の最大ホップ数を更新</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>                <span class="n">longest_path</span> <span class="o">=</span> <span class="n">path</span>  <span class="c1"># 仮の最長パスを更新</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>                <span class="n">furthest_dest</span> <span class="o">=</span> <span class="n">dest</span>  <span class="c1"># 仮の最長パスの目的地を更新</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">まで</span><span class="si">{}</span><span class="s1">ホップ：</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">busstops</span><span class="p">[</span><span class="n">furthest_dest</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">max_hops</span><span class="p">,</span> <span class="n">longest_path</span><span class="p">))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kyotocitybus_line.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="n">bus_network</span> <span class="o">=</span> <span class="n">GraphSearch</span><span class="p">()</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="n">bus_network</span><span class="o">.</span><span class="n">add_undirected_edge</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># 無向エッジを追加</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">fi2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kyotocitybus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi2</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">bus_network</span><span class="o">.</span><span class="n">busstops</span><span class="p">[</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="n">bus_network</span><span class="o">.</span><span class="n">search_with_BFS</span><span class="p">(</span><span class="s1">&#39;ED01_1914&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="n">fi2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>府道横大路まで37ホップ：立命館大学前 --[快速202号系統]--&gt; 小松原児童公園前 --[快速202号系統]--&gt; 衣笠校前 --[快速202号系統]--&gt; 北野白梅町 --[快速202号系統]--&gt; 西ノ京円町 --[快速202号系統]--&gt; 西大路御池 --[快速202号系統]--&gt; 西大路三条 --[11号系統]--&gt; 西大路四条 --[快速202号系統]--&gt; 西大路五条 --[快速202号系統]--&gt; 西大路七条 --[快速202号系統]--&gt; 西大路駅前 --[快速202号系統]--&gt; 羅城門 --[特18号系統]--&gt; 唐戸町 --[特18号系統]--&gt; 千本十条 --[42号系統]--&gt; 市民防災センター前 --[19号系統]--&gt; 上鳥羽 --[19号系統]--&gt; 鳥羽大橋北詰 --[19号系統]--&gt; 城南宮 --[19号系統]--&gt; 国道赤池 --[19号系統]--&gt; 下鳥羽城ノ越町 --[19号系統]--&gt; 国道下鳥羽 --[22号系統]--&gt; 国道大手筋 --[20号系統]--&gt; 八丁畷 --[22号系統]--&gt; 羽束師志水町 --[22号系統]--&gt; 菱川 --[南2号系統]--&gt; 樋爪口 --[南2号系統]--&gt; 免許試験場前 --[20号系統]--&gt; 上樋爪 --[20号系統]--&gt; 樋爪町 --[20号系統]--&gt; 水垂町 --[20号系統]--&gt; 宮前橋西詰 --[20号系統]--&gt; 納所町 --[20号系統]--&gt; 納所北城堀 --[20号系統]--&gt; 納所岸ノ下 --[20号系統]--&gt; 富ノ森 --[20号系統]--&gt; 南横大路 --[20号系統]--&gt; 洛水高校前 --[20号系統]--&gt; 府道横大路
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：最短パスを見つける<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>GraphSearch</code>クラスに、スタート地点から目的地までの最短パスを見つける<code>find_shortest_path</code>メソッドを追加せよ。</p>
+<p><code>find_shortest_path</code>メソッドの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">find_shortest_pathメソッド</p>
+<p><strong><code class="highlight"><span class="n">find_shortest_path</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">goal</span><span class="p">)</span></code></strong><br />
+指定されたノードから目的地への最短パスを出力するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>start</strong>: 開始ノードのID（文字列）</li>
+<li><strong>goal</strong>: 目的地ノードのID（文字列）</li>
+</ul>
+</div>
+<p>最後に、<code>kyotocitybus_line.dat</code>と<code>kyotocitybus_stop.dat</code>のデータを読み込んだ<code>GraphSearch</code>インスタンスを用いて、ED01_1914からED01_4089までの最短パスを出力せよ。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>幅優先探索は、スタート地点から１ホップで行ける全てのノード、２ホップで行ける全てのノード、．．．というように近いノードから網羅的に訪問していく探索である。したがって、指定した目的地までの最短パスを求めるには、<u>目的地を見つけるまで幅優先探索を行えばよい。</u></p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>京都駅前まで12ホップ：立命館大学前 --[M1号系統]--&gt; 桜木町 --[臨号系統]--&gt; わら天神前 --[臨号系統]--&gt; 北大路バスターミナル --[臨号系統]--&gt; 出町柳駅前 --[203号系統]--&gt; 河原町今出川 --[102号系統]--&gt; 堀川今出川 --[101号系統]--&gt; 堀川丸太町 --[快速9号系統]--&gt; 堀川御池 --[快速9号系統]--&gt; 四条堀川 --[快速9号系統]--&gt; 堀川五条 --[快速9号系統]--&gt; 七条堀川 --[快速9号系統]--&gt; 京都駅前
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：深さ優先探索で全ノードを辿る<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>GraphSearch</code>クラスに、あるノードから全部のノードを深さ優先探索で探索する<code>search_with_DFS</code>メソッドを追加せよ。</p>
+<p><code>search_with_DFS</code>メソッドの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">search_with_DFSメソッド</p>
+<p><strong><code class="highlight"><span class="n">search_with_DFS</span><span class="p">(</span><span class="n">start</span><span class="p">)</span></code></strong><br />
+指定されたノードから深さ優先探索で全ノードを探索し最長パスを出力するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>start</strong>: 深さ優先探索の開始ノードのID（文字列）</li>
+</ul>
+</div>
+<p>最後に、<code>kyotocitybus_line.dat</code>と<code>kyotocitybus_stop.dat</code>のデータを読み込んだ<code>GraphSearch</code>インスタンスを用いて、ED01_1914から全ノードを深さ優先で探索し、最長（最大ホップ数）のパスを出力せよ。課題１と結果が異なることに注意せよ。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>深さ優先探索は、後退操作でどのノードに戻ればいいか記憶するために、<u>前進操作時にスタックに出発地のノードを格納する必要がある。</u></p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>中桂まで237ホップ：立命館大学前 --[快速202号系統]--&gt; 小松原児童公園前 --[快速202号系統]--&gt; 衣笠校前 --[快速202号系統]--&gt; 北野白梅町 --[10号系統]--&gt; 府立体育館前 --[10号系統]--&gt; 等持院道 --[10号系統]--&gt; 等持院南町 --[10号系統]--&gt; 妙心寺北門前 --[10号系統]--&gt; 京福妙心寺駅前 --[10号系統]--&gt; 御室仁和寺 --[10号系統]--&gt; 福王子 --[10号系統]--&gt; 鳴滝本町 --[10号系統]--&gt; 宇多野病院前 --[10号系統]--&gt; ユースホステル前 --[10号系統]--&gt; 山越 --[10号系統]--&gt; 山越中町 --[11号系統]--&gt; 山越東町 --[11号系統]--&gt; 太秦開日町 --[11号系統]--&gt; 広沢御所ノ内町 --[11号系統]--&gt; 嵯峨中学前 --[11号系統]--&gt; 嵯峨嵐山駅前 --[11号系統]--&gt; 嵯峨瀬戸川町 --[11号系統]--&gt; 嵯峨小学校前 --[11号系統]--&gt; 野々宮 --[11号系統]--&gt; 嵐山天龍寺前 --[11号系統]--&gt; 嵐山 --[11号系統]--&gt; 角倉町 --[11号系統]--&gt; 下嵯峨 --[11号系統]--&gt; 車折神社前 --[11号系統]--&gt; 有栖川 --[11号系統]--&gt; 生田口 --[11号系統]--&gt; 帷子ノ辻 --[11号系統]--&gt; 太秦開町 --[11号系統]--&gt; 太秦広隆寺前 --[11号系統]--&gt; 太秦東口 --[11号系統]--&gt; 蚕ノ社 --[11号系統]--&gt; 庚申前 --[11号系統]--&gt; 山ノ内 --[11号系統]--&gt; 西大路三条 --[11号系統]--&gt; 西大路四条 --[11号系統]--&gt; 四条御前通 --[11号系統]--&gt; 四条中新道 --[11号系統]--&gt; 壬生寺道 --[11号系統]--&gt; 四条大宮 --[11号系統]--&gt; 四条堀川 --[11号系統]--&gt; 四条西洞院 --[11号系統]--&gt; 四条烏丸 --[100円循環]--&gt; 烏丸三条 --[100円循環]--&gt; 烏丸御池 --[100円循環]--&gt; 堺町御池 --[100円循環]--&gt; 京都市役所前 --[100円循環]--&gt; 河原町三条 --[100円循環]--&gt; 四条河原町 --[11号系統]--&gt; 四条京阪前 --[11号系統]--&gt; 三条京阪前 --[5号系統]--&gt; 役所前 --[10号系統]--&gt; 河原町丸太町 --[10号系統]--&gt; 裁判所前 --[10号系統]--&gt; 烏丸丸太町 --[10号系統]--&gt; 府庁前 --[10号系統]--&gt; 堀川丸太町 --[10号系統]--&gt; 丸太町智恵光院 --[10号系統]--&gt; 千本丸太町 --[10号系統]--&gt; 千本出水 --[10号系統]--&gt; 千本中立売 --[10号系統]--&gt; 千本今出川 --[206号系統]--&gt; 千本上立売 --[206号系統]--&gt; 乾隆校前 --[206号系統]--&gt; 千本鞍馬口 --[206号系統]--&gt; ライトハウス前 --[206号系統]--&gt; 千本北大路 --[北8号系統]--&gt; 佛教大学前 --[北8号系統]--&gt; 旭ヶ丘 --[北8号系統]--&gt; 紫野泉堂町 --[北8号系統]--&gt; 常徳寺前 --[北8号系統]--&gt; 下緑町 --[北8号系統]--&gt; 上堀川 --[特37号系統]--&gt; 東高縄町 --[特37号系統]--&gt; 下鳥田町 --[特37号系統]--&gt; 北大路堀川 --[特37号系統]--&gt; 北大路新町 --[特37号系統]--&gt; 北大路バスターミナル --[臨号系統]--&gt; 出町柳駅前 --[203号系統]--&gt; 百万遍 --[206号系統]--&gt; 京大正門前 --[206号系統]--&gt; 近衛通 --[206号系統]--&gt; 熊野神社前 --[206号系統]--&gt; 東山二条 --[206号系統]--&gt; 東山仁王門 --[206号系統]--&gt; 東山三条 --[206号系統]--&gt; 知恩院前 --[206号系統]--&gt; 祇園 --[207号系統]--&gt; 東山安井 --[207号系統]--&gt; 清水道 --[207号系統]--&gt; 五条坂 --[207号系統]--&gt; 馬町 --[207号系統]--&gt; 東山七条 --[臨号系統]--&gt; 博物館三十三間堂前 --[臨号系統]--&gt; 七条京阪前 --[臨号系統]--&gt; 七条河原町 --[臨号系統]--&gt; 京都駅前 --[特81号系統]--&gt; 塩小路高倉 --[特81号系統]--&gt; 京都駅八条口アバンティ前 --[特81号系統]--&gt; 大石橋 --[特81号系統]--&gt; 札ノ辻 --[特81号系統]--&gt; 十条竹田街道 --[特81号系統]--&gt; 勧進橋 --[特81号系統]--&gt; 深草下川原町 --[特81号系統]--&gt; 竹田久保町 --[特81号系統]--&gt; 竹田出橋 --[特81号系統]--&gt; 七瀬川町 --[特81号系統]--&gt; 竹田城南宮道 --[特81号系統]--&gt; 西墨染通 --[特81号系統]--&gt; 棒鼻 --[特81号系統]--&gt; 住吉 --[特81号系統]--&gt; 西丹波橋 --[特81号系統]--&gt; 西板橋 --[特81号系統]--&gt; 肥後町 --[特81号系統]--&gt; 西大手筋 --[特81号系統]--&gt; 京橋 --[特81号系統]--&gt; 中書島 --[特81号系統]--&gt; 下三栖 --[特81号系統]--&gt; 横大路車庫前 --[南8号系統]--&gt; 国道大手筋 --[南8号系統]--&gt; 三栖公園前 --[南3号系統]--&gt; 伏見警察署前 --[南3号系統]--&gt; 油小路丹波橋 --[南3号系統]--&gt; 城南宮東口 --[特南2号系統]--&gt; パルスプラザ前 --[特南2号系統]--&gt; 国道赤池 --[特南2号系統]--&gt; 赤池 --[特南2号系統]--&gt; 上鳥羽塔ノ森 --[特南2号系統]--&gt; 久我 --[南1号系統]--&gt; 菱妻神社前 --[南1号系統]--&gt; 久我石原町 --[特13号系統]--&gt; 東土川橋 --[特13号系統]--&gt; 国道東土川 --[特13号系統]--&gt; 久世殿城町 --[特13号系統]--&gt; 下久世 --[特南1号系統]--&gt; 久世大薮町 --[特南1号系統]--&gt; 久世工業団地前 --[78号系統]--&gt; 築山 --[13号系統]--&gt; 久世橋西詰 --[特13号系統]--&gt; 久世橋東詰 --[特18号系統]--&gt; 石原団地前 --[特18号系統]--&gt; 吉祥院嶋高町 --[特18号系統]--&gt; 上鳥羽馬廻 --[特18号系統]--&gt; 吉祥院池田町 --[特18号系統]--&gt; 吉祥院蒔絵町 --[特18号系統]--&gt; 上鳥羽村山町 --[特18号系統]--&gt; 上ノ町 --[特18号系統]--&gt; 五丁橋 --[特18号系統]--&gt; 千本十条 --[特18号系統]--&gt; 唐戸町 --[特18号系統]--&gt; 羅城門 --[特18号系統]--&gt; 東寺南門前 --[特18号系統]--&gt; 九条大宮 --[特18号系統]--&gt; 東寺東門前 --[特18号系統]--&gt; 七条大宮 --[特33号系統]--&gt; 七条堀川 --[特33号系統]--&gt; 下京区総合庁舎前 --[16号系統]--&gt; 八条油小路 --[16号系統]--&gt; 八条大宮 --[16号系統]--&gt; 六孫王神社前 --[16号系統]--&gt; 東寺西門前 --[16号系統]--&gt; 御土居 --[16号系統]--&gt; 八条中学前 --[16号系統]--&gt; 西寺前 --[16号系統]--&gt; 洛陽工業高校前 --[208号系統]--&gt; 西大路九条 --[208号系統]--&gt; 西大路駅前 --[特13号系統]--&gt; 西大路八条 --[特13号系統]--&gt; 西大路七条 --[特33号系統]--&gt; 月読橋 --[特33号系統]--&gt; 大門町 --[特33号系統]--&gt; 川勝寺 --[特33号系統]--&gt; 桂大橋 --[特33号系統]--&gt; 桂離宮前 --[特33号系統]--&gt; 下桂 --[特南1号系統]--&gt; 桂消防署前 --[特南1号系統]--&gt; 桂高校前 --[特南1号系統]--&gt; 莚田町 --[特南1号系統]--&gt; 自衛隊前 --[特南1号系統]--&gt; 川島六ノ坪町 --[特南1号系統]--&gt; 高田町 --[西4号系統]--&gt; 物集女 --[西4号系統]--&gt; 第二回生病院前 --[西4号系統]--&gt; 北福西町一丁目 --[西5号系統]--&gt; 京都明徳高校前 --[西8号系統]--&gt; 三ノ宮街道 --[西6号系統]--&gt; 桂イノベーションパーク前 --[西6号系統]--&gt; 京大桂キャンパス前 --[西6号系統]--&gt; 桂御陵坂 --[西6号系統]--&gt; 東桂坂 --[西6号系統]--&gt; 峰ヶ堂町三丁目 --[西6号系統]--&gt; 桂坂センター前 --[西5号系統]--&gt; 桂坂口 --[西5号系統]--&gt; 国道沓掛口 --[西5号系統]--&gt; 新林池公園 --[西8号系統]--&gt; 新林センター前 --[西8号系統]--&gt; 新林公団住宅前 --[西8号系統]--&gt; 東新林町 --[特西3号系統]--&gt; 洛西バスターミナル --[西8号系統]--&gt; 境谷大橋 --[特33号系統]--&gt; 小畑川公園北口 --[特33号系統]--&gt; 国道中山 --[特33号系統]--&gt; 三ノ宮 --[特33号系統]--&gt; 公会堂前 --[特33号系統]--&gt; 樫原 --[69号系統]--&gt; 月見ヶ丘 --[69号系統]--&gt; 千代原口 --[73号系統]--&gt; 平和台町 --[73号系統]--&gt; 上桂前田町 --[73号系統]--&gt; 上桂御正町 --[73号系統]--&gt; 西大橋西詰 --[73号系統]--&gt; 西京極 --[80号系統]--&gt; 西京極運動公園前 --[80号系統]--&gt; 光華女子学園前 --[84号系統]--&gt; 葛野大路高辻 --[84号系統]--&gt; 四条葛野大路 --[臨号系統]--&gt; 京都外大前 --[臨号系統]--&gt; 南広町 --[臨号系統]--&gt; 日新電機前 --[臨号系統]--&gt; 梅津段町 --[臨号系統]--&gt; 長福寺道 --[臨号系統]--&gt; 梅津西浦町 --[臨号系統]--&gt; 梅ノ宮神社前 --[臨号系統]--&gt; 松尾橋 --[29号系統]--&gt; 松尾大社前 --[29号系統]--&gt; 松室北河原町 --[29号系統]--&gt; 苔寺道 --[29号系統]--&gt; 松尾大利町 --[69号系統]--&gt; 上桂駅前 --[69号系統]--&gt; 上桂西居町 --[69号系統]--&gt; 上野橋 --[70号系統]--&gt; 上桂東ノ口 --[70号系統]--&gt; 桂徳大寺 --[70号系統]--&gt; 中桂
+</code></pre></div>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index11/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 11" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Week 11
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../whatisclass/" class="md-footer__link md-footer__link--next" aria-label="次: 復習：クラスとは" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              復習：クラスとは
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "navigation.top"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

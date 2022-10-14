@@ -1,0 +1,896 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This page describes exercises for Programming Practice 2 in FSD course.">
+      
+      
+        <meta name="author" content="Yohei Murakami">
+      
+      
+        <link rel="canonical" href="https://si-ritsumei.github.io/programming2/index9/">
+      
+      <link rel="icon" href="../image/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Week 9 - プログラミング演習2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JKE5QGM6SL"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-JKE5QGM6SL",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKE5QGM6SL"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-9-2022616" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="プログラミング演習2" class="md-header__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミング演習2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 9
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="プログラミング演習2" class="md-nav__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    プログラミング演習2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Week 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index2/" class="md-nav__link">
+        Week 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index3/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index6/" class="md-nav__link">
+        Week 6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index7/" class="md-nav__link">
+        Week 7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index8/" class="md-nav__link">
+        Week 8
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 9
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 9
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：ヒープでデータを並べ替える
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：データを並べ替える（マージソート）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：データを並べ替える（クイックソート）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：データの並べ替え時間を比較する
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index10/" class="md-nav__link">
+        Week 10
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index11/" class="md-nav__link">
+        Week 11
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index12/" class="md-nav__link">
+        Week 12
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whatisclass/" class="md-nav__link">
+        復習：クラスとは
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errorlist/" class="md-nav__link">
+        Pythonの基本的なエラー一覧
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：ヒープでデータを並べ替える
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：データを並べ替える（マージソート）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：データを並べ替える（クイックソート）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：データの並べ替え時間を比較する
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="week-9-2022616">Week 9 (2022/6/16)<a class="headerlink" href="#week-9-2022616" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">今週の目的</p>
+<p>分割統治法を用いてデータを昇順・降順に並べ替える。</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">今週のキーワード</p>
+<ul>
+<li>ヒープを用いたヒープソート</li>
+<li>分割統治法を用いたマージソートとクイックソート</li>
+</ul>
+</div>
+<p>今回はソートアルゴリズムとしてヒープソートと、マージソート、クイックソートを実装する。</p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：ヒープでデータを並べ替える<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>前回に作成した<code>DB</code>クラス（親クラス）を継承した<code>DBwHeapSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「ヒープソートアルゴリズム」で実装せよ。なお、<code>DB</code>クラスは<a download="def_db.py" href="../files/def_db.py"><code>def_db.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールの<code>DB</code>クラスをインポートして用いること。</p>
+<p>今回作成する<code>DBwHeapSort</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwHeapSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwHeapSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータをヒープソートで並べ替えるクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>heap</strong>: ヒープソートで用いるヒープ</li>
+<li><strong>queue</strong>: ヒープソートで用いるキュー</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身をヒープソートで昇順に並べ替えるメソッド</p>
+</div>
+<p>なお、ヒープソートの実装には、<a download="def_heap.py" href="../files/def_heap.py"><code>def_heap.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールの<code>Heap</code>クラスとそのメソッドを用いる。<code>Heap</code>クラスの各メソッドの仕様は<a href="../index8/">Week8</a>を参照すること。</p>
+<!-- !!! example "Heapクラス"
+    **`#!python class Heap()`**
+    データを格納するヒープのクラス
+
+    **`#!python build_heap(list)`**  
+    リストの中身をヒープソートで昇順に並べ替えるメソッド
+
+    **パラメータ**
+
+    - **list**: ヒープに格納するデータのリスト（`Stop`インスタンスのリスト）
+
+    **`#!python delete_min()`**  
+    ヒープの最小値である根を削除するメソッド
+
+    **返り値**
+
+    - ヒープの根に格納されたデータ（`Stop`インスタンス） -->
+
+<p>まず、<u><code>build_heap</code>メソッドを用いて、<code>DBwHeapSort</code>インスタンス内のリストからヒープを構成し、その後、<code>delete_min</code>メソッドを繰り返して、値の小さいものから順にヒープから取り出す</u>。取り出したデータはキュー（<a download="def_queue_stack.py" href="../files/def_queue_stack.py"><code>def_queue_stack.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールを用いてよい）に<code>enqueue</code>し、全てのデータを<code>enqueue</code>した後に、<code>dequeue</code>でデータを取り出し<u><code>DBwHeapSort</code>インスタンス内のリストに再格納する</u>。</p>
+<p>最後に、実装した<code>DBwHeapSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week9_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">def_stop</span> <span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">def_heap</span> <span class="kn">import</span> <span class="n">Heap</span>  <span class="c1"># Heapクラスの読み込み</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">from</span> <span class="nn">def_queue_stack</span> <span class="kn">import</span> <span class="n">Queue</span>  <span class="c1"># Queueクラスの読み込み</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">from</span> <span class="nn">def_db</span> <span class="kn">import</span> <span class="n">DB</span>  <span class="c1"># DBクラスの読み込み</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">class</span> <span class="nc">DBwHeapSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># ヒープソート用のクラス</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># 親クラスの__init()__の呼び出し</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">heap</span> <span class="o">=</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープのインスタンスを生成</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューのインスタンスを生成</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># self.listからヒープを構築</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープの根を取得する</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="k">while</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># ヒープの根が取得できる限り繰り返す</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="nb">min</span><span class="p">)</span>  <span class="c1"># ヒープの根をキューに追加</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープの根を取得する</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューからデータを取り出す</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="k">while</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># キューからデータを取り出せる限り繰り返す</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span>  <span class="c1"># 取り出したデータをDBのリストに追加する</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューからデータを取り出す</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">DBwHeapSort</span><span class="p">()</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>  <span class="c1"># Stopオブジェクトを各DBインスタンスに追加</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># ソート前の時間を記録（time()は現在時刻を返すメソッド）</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="n">db</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># データのソートを実行</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>  <span class="c1"># ソート後の時間からソート前の時間を引き実行時間計測</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">db</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">is_sorted</span><span class="p">():</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ソートが完了しました！</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span>  <span class="c1"># __class__はインスタンスのクラスを返し、__name__はそのクラスの名前を返す</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>（中略）
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ソートが完了しました！DBwHeapSortは0.03531908988952637秒かかりました。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：データを並べ替える（マージソート）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>に作成した<code>DB</code>クラス（親クラス）を継承し、<code>DBwMergeSort</code>クラス（子クラス）を定義して、<code>sort</code>メソッドを「マージソートアルゴリズム」で実装せよ。</p>
+<p>今回作成する<code>DBwMergeSort</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwMergeSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwMergeSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータをマージソートで並べ替えるクラス</p>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong>
+リストの中身をマージソートで昇順に並べ替えるメソッド  </p>
+</div>
+<!-- `mergesort`メソッドを実行する
+
+**`#!python mergesort(l, r)`**  
+マージソートのアルゴリズムを実装したメソッド
+
+**パラメータ**
+
+- **l**: マージソートを行う対象区間の左端のインデックス（整数）
+- **r**: マージソートを行う対象区間の右端のインデックス（整数）
+
+**`#!python merge(l, m, r)`**  
+ソートされた二つのリストをマージするメソッド
+
+**パラメータ**
+
+- **l**: マージする前半のリストの左端のインデックス（整数）
+- **m**: マージする前半のリストの右端のインデックス（整数）
+- **r**: マージする後半のリストの右端のインデックス（整数） -->
+
+<p>最後に、実装したクラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>（中略）
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ソートが完了しました！DBwMergeSortは0.013421058654785156秒かかりました。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：データを並べ替える（クイックソート）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>DB</code>クラス（親クラス）を継承し、<code>DBwQuickSort</code>クラス（子クラス）を定義して、<code>sort</code>メソッドを「クイックソートアルゴリズム」で実装せよ。</p>
+<p>今回作成する<code>DBwQuickSort</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwQuickSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwQuickSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータをクイックソートで並べ替えるクラス</p>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身をクイックソートで昇順に並べ替えるメソッド</p>
+</div>
+<!-- `quicksort`メソッドを実行する
+
+**`#!python quicksort(l, r)`**  
+クイックソートのアルゴリズムを実装したメソッド
+
+**パラメータ**
+
+- **l**: クイックソートを行う対象区間の左端のインデックス（整数）
+- **r**: クイックソートを行う対象区間の右端のインデックス（整数）
+
+**`#!python partition(l, r, pivot)`**  
+リストの`pivot`番目に格納されているデータを基準にして、リストをそれよりも小さいリストと大きいリストに分けるメソッド
+
+**パラメータ**
+
+- **l**: 分割するリストの左端のインデックス（整数）
+- **r**: 分割するリストの右端のインデックス（整数） -->
+
+<p>最後に、実装したクラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>（中略）
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ソートが完了しました！DBwQuickSortは0.008417844772338867秒かかりました。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題4：データの並べ替え時間を比較する<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>これまで実装した<code>DBwBubbleSort</code>クラス、<code>DBwSelectSort</code>クラス、<code>DBwInsertSort</code>クラス、<code>DBwHeapSort</code>クラス、<code>DBwMergeSort</code>クラス、<code>DBwQuickSort</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ソートが完了しました！DBwBubbleSortは0.6107010841369629秒かかりました。
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ソートが完了しました！DBwSelectSortは0.3105299472808838秒かかりました。
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ソートが完了しました！DBwInsertSortは0.1937861442565918秒かかりました。
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>ソートが完了しました！DBwHeapSortは0.024415016174316406秒かかりました。
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ソートが完了しました！DBwMergeSortは0.009604930877685547秒かかりました。
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>ソートが完了しました！DBwQuickSortは0.009488821029663086秒かかりました。
+</code></pre></div>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index8/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 8" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Week 8
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../index10/" class="md-footer__link md-footer__link--next" aria-label="次: Week 10" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              Week 10
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "navigation.top"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

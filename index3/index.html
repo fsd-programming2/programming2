@@ -1,0 +1,861 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="This page describes exercises for Programming Practice 2 in FSD course.">
+      
+      
+        <meta name="author" content="Yohei Murakami">
+      
+      
+        <link rel="canonical" href="https://si-ritsumei.github.io/programming2/index3/">
+      
+      <link rel="icon" href="../image/favicon.jpg">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.2.8">
+    
+    
+      
+        <title>Week 3 - プログラミング演習2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.644de097.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:600,800">
+    
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-JKE5QGM6SL"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-JKE5QGM6SL",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKE5QGM6SL"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-3-2022421" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="プログラミング演習2" class="md-header__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            プログラミング演習2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 3
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="programming2" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="プログラミング演習2" class="md-nav__button md-logo" aria-label="プログラミング演習2" data-md-component="logo">
+      
+  <img src="../image/logo.svg" alt="logo">
+
+    </a>
+    プログラミング演習2
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Week 1
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index2/" class="md-nav__link">
+        Week 2
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：連結リストを切り取る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：ファイルから連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：連結リストを繰り返し処理する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    発展課題5：連結リストから任意の節を切り取る
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index6/" class="md-nav__link">
+        Week 6
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index7/" class="md-nav__link">
+        Week 7
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index8/" class="md-nav__link">
+        Week 8
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index9/" class="md-nav__link">
+        Week 9
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index10/" class="md-nav__link">
+        Week 10
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index11/" class="md-nav__link">
+        Week 11
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index12/" class="md-nav__link">
+        Week 12
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whatisclass/" class="md-nav__link">
+        復習：クラスとは
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../errorlist/" class="md-nav__link">
+        Pythonの基本的なエラー一覧
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：連結リストを切り取る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：ファイルから連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：連結リストを繰り返し処理する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    発展課題5：連結リストから任意の節を切り取る
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="week-3-2022421">Week 3 (2022/4/21)<a class="headerlink" href="#week-3-2022421" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">今週の目的</p>
+<p>データの順番を入れ替える。</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">今週のキーワード</p>
+<ul>
+<li>モジュールのインポート</li>
+<li>デフォルト値</li>
+<li>節（<code>Node</code>クラス）を用いた連結リストの作成</li>
+<li>連結リストの先頭への節の挿入</li>
+<li>連結リストの切り取り</li>
+<li>連結リストの繰り返し処理</li>
+</ul>
+</div>
+<p>データ構造の1つである<strong>連結リスト</strong>を操作するプログラムを作成する。連結リストとは節（<strong>Node</strong> もしくは <strong>Vertex</strong>）と呼ばれるデータを一方向もしくは両方向に連結させたデータ構造である。今回は、この連結リストへのデータの挿入と切り取りを習得する。具体的には、前回作成した<code>Stop</code>クラスのインスタンスを連結リストの節(<code>Node</code>クラス)に格納し、それらを表示するプログラムを作成する。</p>
+<p>今回作成する<code>Node</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">Nodeクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code></strong><br />
+連結リストの節のクラス</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>data</strong>: 節に格納するデータ（<code>Stop</code>インスタンス）</li>
+<li><strong>next</strong>: 連結される次の節（<code>Node</code>インスタンス）</li>
+</ul>
+</div>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：連結リストを作る<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>「立命館大学前」、「同志社前」、「京大正門前」、「京都産大前」、「龍谷大学前」からなる連結リストを作成する。（「データ構造とアルゴリズム」の教科書P.73の(1-d)参照）</p>
+<p>なお、これまでに作成した<code>Stop</code>クラスや<code>Stop</code>インスタンスの定義を<code>import</code>するために、それらをまとめた<a download="def_stop.py" href="../files/def_stop.py"><code>def_stop.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>をダウンロードし、同一ディレクトリに保存して用いよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week3_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># StopクラスおよびStopインスタンスの定義をdef_stop.pyからインポート</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">def_stop</span> <span class="kn">import</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">ritsumeikan</span><span class="p">,</span> <span class="n">doshisha</span><span class="p">,</span> <span class="n">kyodai</span><span class="p">,</span> <span class="n">kyosan</span><span class="p">,</span> <span class="n">ryukoku</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Nodeクラスの定義</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="c1"># nextにデフォルト値（何も値が渡されなかった時に設定される値）を設定</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>  <span class="c1"># データを格納するインスタンス変数</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>  <span class="c1"># 連結される次の節を指すインスタンス変数</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># 連結リストを末尾の「龍谷大学前」から順に作成する</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">top</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">ryukoku</span><span class="p">)</span>  <span class="c1"># Nodeインスタンスを作成し、連結リストのリストヘッドtopに代入</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">p</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># Nodeインスタンスを作成</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="p">[</span><span class="n">____</span><span class="p">]</span> <span class="o">=</span> <span class="n">top</span>  <span class="c1"># 作成したNodeインスタンス(p)の次に連結リストの先頭(top)を連結</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="n">top</span> <span class="o">=</span> <span class="n">p</span>  <span class="c1"># 作成したNodeインスタンス(p)が連結リストの先頭となるようにリストヘッドtopを更新</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">p</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># 不要になった変数pをNoneに更新</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="n">top</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="p">[</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 連結リストの先頭（top）の前にNodeインスタンスを挿入し、そのNodeインスタンスが連結リストの先頭となるようにリストヘッドtopを更新（上記5行分を簡潔に1行で記述）</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="n">top</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="p">[</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 上と同様</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="n">top</span> <span class="o">=</span> <span class="n">Node</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="p">[</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 上と同様</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">p</span> <span class="o">=</span> <span class="n">top</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">next</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>立命館大学前(ID:ED01_1914)のバス停の緯度経度は(35.03497163,135.72602961)です。
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>同志社前(ID:ED01_1922)のバス停の緯度経度は(35.02913136,135.76314762)です。
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>京大正門前(ID:ED01_1841)のバス停の緯度経度は(35.02548675,135.7786403)です。
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>京都産大前(ID:ED01_2244)のバス停の緯度経度は(35.07182049,135.75638731)です。
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>龍谷大学前(ID:ED01_2263)のバス停の緯度経度は(34.9631519,135.76834405)です。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：連結リストを切り取る<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題１</a>で作成した連結リストから「京大正門前」だけを切り取るようにプログラムを修正して、残った連結リストを表示し、実行例の通りに動くことを確認せよ。（「データ構造とアルゴリズム」の教科書P.77の(1-c)参照）</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>立命館大学前(ID:ED01_1914)のバス停の緯度経度は(35.03497163,135.72602961)です。
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>同志社前(ID:ED01_1922)のバス停の緯度経度は(35.02913136,135.76314762)です。
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>京都産大前(ID:ED01_2244)のバス停の緯度経度は(35.07182049,135.75638731)です。
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>龍谷大学前(ID:ED01_2263)のバス停の緯度経度は(34.9631519,135.76834405)です。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：ファイルから連結リストを作る<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p>前回と同じファイル（<code>kyotocitybus_stop.dat</code>）からデータを読み込み、読み込んだ順に<code>Stop</code>インスタンスを生成して節に格納し、連結リストの先頭に順次挿入するプログラムを作成せよ。また、全てのデータを挿入し終わった後に、連結リストの先頭の節に格納されている<code>Stop</code>インスタンスを表示するよう修正して、実行例の通りに動くことを確認せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題4：連結リストを繰り返し処理する<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p><a href="#3">課題３</a>のプログラムに、連結リスト内の<code>data</code>を「先頭」から順に表示する<code>print_linked_list</code>関数を追加し、実行例の通りに動くことを確認せよ。なお、<code>print_linked_list</code>関数は、<u>ループを回して連結リスト内の節がいくつであっても連結リストの節を全部出力できるように実装すること。</u></p>
+<p>今回作成する<code>print_linked_list</code>関数の仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">print_linked_list関数</p>
+<p><strong><code class="highlight"><span class="n">print_linked_list</span><span class="p">(</span><span class="n">top</span><span class="p">)</span></code></strong><br />
+連結リストの節に格納されたデータを先頭の節から終端の節まで順番に表示する関数</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>top</strong>: 連結リストの先頭の節（<code>Node</code>インスタンス）</li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>繰り返す回数が分からないため、ループは<code>for</code>文ではなく<code>while</code>文を用いて、走査が<code>None</code>にたどり着くまで繰り返すとよい。つまり、走査する（節を一つずつ辿る）変数が<code>None</code>でない（<code>is not None</code>）限り、表示を繰り返すように実装しよう。</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>(途中省略)
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="5"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題5：連結リストから任意の節を切り取る<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>任意の長さの連結リストから、特定のバス停を格納した節のみを削除する<code>remove_node</code>関数を定義せよ。さらに、<code>remove_node</code>関数を使って<a href="#3">課題３</a>で作成した連結リストから「京都駅八条口」と「西賀茂車庫前」のバス停を切り取り、<a href="#4">発展課題４</a>で作成した<code>print_linked_list</code>関数を使って、残りの連結リストを表示し、実行例の通りに動くことを確認せよ。</p>
+<p>今回作成する<code>remove_node</code>関数の仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">remove_node関数</p>
+<p><strong><code class="highlight"><span class="n">remove_node</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span></code></strong><br />
+連結リストの節に格納されているデータを先頭の節から順番に確認し、<code>names</code>リストに含まれるデータが見つかったときに、その節を連結リストから取り除く関数</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>top</strong>: 連結リストの先頭の節（<code>Node</code>インスタンス）</li>
+<li><strong>names</strong>: 削除するバス停名のリスト</li>
+</ul>
+<p><strong>返り値</strong></p>
+<ul>
+<li>削除後の連結リストの先頭の節（<code>Node</code>インスタンス）</li>
+</ul>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>節に格納されているバス停が削除対象のバス停かどうかチェックするために連結リストを走査する（節を一つずつ辿る）変数と、節の切り取り時に一つ前の節を覚えておくための変数の二つの変数を用いるとよい。また、繰り返し処理は<code>print_linked_list</code>関数と同様に、<code>while</code>文を用いて走査が<code>None</code>にたどり着くまで繰り返すように実装しよう。</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>京都市役所前(ID:ED01_2306)のバス停の緯度経度は(35.01092789,135.76803111)です。
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>(途中省略)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>山ノ前町(ID:ED01_1640)のバス停の緯度経度は(35.05625634,135.74108489)です。
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+</code></pre></div>
+</div>
+</div>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index2/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 2" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Week 2
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../index4/" class="md-footer__link md-footer__link--next" aria-label="次: Week 4" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              Week 4
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2022
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link", "navigation.top"], "search": "../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c44cc438.min.js"></script>
+      
+        <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
