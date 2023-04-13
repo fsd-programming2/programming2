@@ -603,7 +603,7 @@
 <p><code>Stop</code>インスタンスのリストを用いて、各バス停の経度（<code>lng</code>）をx座標に、緯度（<code>lat</code>）をy座標にプロットして散布図を作成し表示しなさい。また、バス停に停車するバスの路線の本数に応じてプロットしたマーカの色を変えて、実行例の通りに表示されることを確認せよ。</p>
 <div class="admonition hint">
 <p class="admonition-title">ヒント</p>
-<p>散布図を作成するには<code>matplotlib.pyplot</code>の<code>scatter</code>関数を用いよう。第一引数にx座標のデータ列、第二引数にy座標のデータ列を与える。また、プロットするデータの色はキーワード付き引数<code>c</code>にその色の濃さを表すデータ列を与える。今回の場合は、第一引数に各バス停の経度<code>lng</code>のリスト、第二引数に各バス停の緯度<code>lat</code>のリスト、キーワード付き引数<code>c</code>に各バス停の<code>count_routes()</code>の値のリストを用いればよい。</p>
+<p>散布図を作成するには<code>matplotlib.pyplot</code>の<code>scatter</code>関数を用いよう。第一引数にx座標のデータ(列)、第二引数にy座標のデータ(列)を与える。また、プロットするデータのサイズはキーワード付き引数<code>s</code>にそのサイズの大きさを表すデータ(列)を与える。今回の場合は、第一引数に各バス停の経度<code>lng</code>、第二引数に各バス停の緯度<code>lat</code>、キーワード付き引数<code>s</code>に各バス停の<code>count_routes()</code>の値を用いればよい。</p>
 </div>
 <div class="admonition example">
 <p class="admonition-title">scatter関数</p>
@@ -613,21 +613,22 @@ matplotlib.pyplot.scatter(x, y, c=None)</code> -->
 散布図を作成する関数</p>
 <p><strong>パラメータ</strong></p>
 <ul>
-<li><strong>x</strong>: データのx座標の値のリスト</li>
-<li><strong>y</strong>: データのy座標の値のリスト</li>
-<li><strong>c</strong>: データのマーカーの色の濃さのリスト</li>
+<li><strong>x</strong>: データのx座標の値/リスト</li>
+<li><strong>y</strong>: データのy座標の値/リスト</li>
+<li><strong>s</strong>: データのマーカーのサイズの値/リスト</li>
 </ul>
 <p><strong>使用例</strong>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></p>
 <p>APIの詳細は<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html" target="_blank">公式のページ</a>を参照すること。</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><img align="left" alt="散布図" src="../image/2_scatter.png" /></p>
+<p><img align="left" alt="散布図" src="../image/2_scatter_size.png" /></p>
 </div>
 </div>
 </div>
