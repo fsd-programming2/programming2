@@ -671,7 +671,7 @@
 </div>
 </div>
 <div class="admonition info">
-<p class="admonition-title">if <strong>name</strong> == '<strong>main</strong>':とは？</p>
+<p class="admonition-title">if __name__ == '__main__':とは？</p>
 <p>プログラムで定義されたクラス（たとえば<code>DB</code>クラス）や関数を他のプログラムにインポートすると、インポートしたクラスや関数だけでなく、<mark>そのプログラム全体が読み込まれ実行されます。</mark></p>
 <p>クラス定義や関数定義のみ書かれたプログラムであれば問題ありませんが、それらを使った処理まで書かれていると、それらが実行されてしまいます。たとえば、<code>week7_1.py</code>の<code>DB</code>クラスのみをインポート（<code>from week7_1 import DB</code>）して、<code>DB</code>クラスを継承した<code>DBwSelectSort</code>クラスを実装しようとすると、<code>DBwBubbleSort</code>インスタンスを生成して、データを追加しソートして結果を表示する処理も実行されるわけです。</p>
 <p>プログラムをモジュールとしてインポートしている（<code>from week7_1 import DB</code>）のか、プログラムを直接実行している（<code>python week7_1.py</code>）のかを区別するために<code>__name__</code>という特殊なグローバル変数があります。<code>__name__</code>の値がモジュール名の場合（<code>week7_1</code>）は、インポートしているときの実行を表し、<code>__name__</code>の値が<code>'main'</code>の場合は、プログラムを直接実行していることを表しています。</p>
