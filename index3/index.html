@@ -19,7 +19,7 @@
     
     
       
-        <title>Week 3 (2024/4/19) - プログラミング演習2</title>
+        <title>Week 3 - プログラミング演習2</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 3 (2024/4/19)
+              Week 3
             
           </span>
         </div>
@@ -256,6 +256,120 @@
 
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Week 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Week 3
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    課題1：連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    課題2：連結リストを切り取る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    課題3：ファイルから連結リストを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：連結リストを繰り返し処理する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    発展課題5：連結リストから任意の節を切り取る
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
   
     <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
@@ -375,7 +489,7 @@
 <p>今回作成する<code>Node</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">Nodeクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">Node</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code></strong><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code></strong><br />
 連結リストの節のクラス</p>
 <p><strong>パラメータ</strong></p>
 <ul>
@@ -424,12 +538,12 @@
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め用のプログラム</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># StopクラスおよびStopインスタンスの定義をdef_stop.pyからインポート</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span> <span class="nn">def_stop</span> <span class="kn">import</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">ritsumeikan</span><span class="p">,</span> <span class="n">doshisha</span><span class="p">,</span> <span class="n">kyodai</span><span class="p">,</span> <span class="n">kyosan</span><span class="p">,</span> <span class="n">ryukoku</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span><span class="p">,</span> <span class="n">ritsumeikan</span><span class="p">,</span> <span class="n">doshisha</span><span class="p">,</span> <span class="n">kyodai</span><span class="p">,</span> <span class="n">kyosan</span><span class="p">,</span> <span class="n">ryukoku</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Nodeクラスの定義</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span> <span class="nc">Node</span><span class="p">:</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Node</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="nb">next</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="c1"># nextにデフォルト値（何も値が渡されなかった時に設定される値）を設定</span>
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>  <span class="c1"># データを格納するインスタンス変数</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">next</span> <span class="o">=</span> <span class="nb">next</span>  <span class="c1"># 連結される次の節を指すインスタンス変数</span>
@@ -570,6 +684,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="フッター">
+      
+        
+        <a href="../index2/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 2" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                前
+              </span>
+              Week 2
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../index4/" class="md-footer__link md-footer__link--next" aria-label="次: Week 4" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                次
+              </span>
+              Week 4
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

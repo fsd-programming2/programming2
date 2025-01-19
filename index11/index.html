@@ -258,6 +258,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../index3/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
         復習：クラスとは
       </a>
@@ -359,7 +404,7 @@
 <p><code>GraphWalk</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">GraphWalkクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">GraphWalk</span><span class="p">()</span></code></strong> <em><code>Graph</code>クラスのサブクラス</em><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">GraphWalk</span><span class="p">()</span></code></strong> <em><code>Graph</code>クラスのサブクラス</em><br />
 グラフ上のノードを辿ることができるクラス</p>
 <p><strong><code class="highlight"><span class="n">walk</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span></code></strong><br />
 指定されたノードから指定された数だけグラフ上のノードを辿る（ウォーク）メソッド</p>
@@ -410,10 +455,10 @@
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">def_graph</span> <span class="kn">import</span> <span class="n">Graph</span>  <span class="c1"># Graphクラスの読み込み</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">Graph</span>  <span class="c1"># Graphクラスの読み込み</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">class</span> <span class="nc">GraphWalk</span><span class="p">(</span><span class="n">Graph</span><span class="p">):</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">def</span> <span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">GraphWalk</span><span class="p">(</span><span class="n">Graph</span><span class="p">):</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">walk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">step</span><span class="p">):</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>        <span class="n">parents</span> <span class="o">=</span> <span class="p">{</span><span class="n">start</span><span class="p">:</span><span class="kc">None</span><span class="p">}</span>  <span class="c1"># 直前のノードとそれに接続するエッジのペア（タプル）を格納する辞書（key=訪問中ノードID、value=(直前のノードID, エッジラベル)）</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">start</span>  <span class="c1"># 開始地点のノードIDを訪問中ノードIDに設定</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="n">current</span><span class="p">]</span>  <span class="c1"># 訪問中ノードIDを訪問済みリストに追加</span>

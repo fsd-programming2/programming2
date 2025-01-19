@@ -258,6 +258,51 @@
   
   
     <li class="md-nav__item">
+      <a href="../index3/" class="md-nav__link">
+        Week 3
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index4/" class="md-nav__link">
+        Week 4
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index5/" class="md-nav__link">
+        Week 5
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
         復習：クラスとは
       </a>
@@ -361,7 +406,7 @@
 <p><code>DB</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">DBクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DB</span><span class="p">()</span></code></strong><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">()</span></code></strong><br />
 格納したデータを並べ替えるクラス</p>
 <p><strong>インスタンス変数</strong></p>
 <ul>
@@ -394,7 +439,7 @@
 <p><code>DBwBubbleSort</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">DBwBubbleSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwBubbleSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
 格納したデータをバブルソートで並べ替えるクラス</p>
 <p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
 リストの中身をバブルソートで昇順に並べ替えるメソッド</p>
@@ -458,39 +503,39 @@
 <span class="normal"><a href="#__codelineno-0-53">53</a></span>
 <span class="normal"><a href="#__codelineno-0-54">54</a></span>
 <span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span> <span class="nn">def_stop</span> <span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span> <span class="nc">DB</span><span class="p">:</span>  <span class="c1"># DBクラスの定義</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span>  <span class="c1"># DBクラスの定義</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># データを格納するリスト</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># データをリストの末尾に挿入</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">def</span> <span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データの件数を返す</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データの件数を返す</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データを昇順にソートする</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データを昇順にソートする</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">pass</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span> <span class="nf">is_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>
 <a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="k">return</span> <span class="kc">False</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">return</span> <span class="kc">True</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">class</span> <span class="nc">DBwBubbleSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># バブルソート用のクラス</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># バブルソート用のクラス</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># データ件数を取得</span>
 <a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 右端から順に2番目の要素まで最大値を確定させていく</span>
 <a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 左端から順に比較＆入換えを繰り返す</span>
@@ -537,7 +582,7 @@
 <p><code>DBwSelectSort</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">DBwSelectSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwSelectSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwSelectSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
 格納したデータを選択ソートで並べ替えるクラス</p>
 <p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
 リストの中身を選択ソートで昇順に並べ替えるメソッド</p>
@@ -561,7 +606,7 @@
 <p><code>DBwInsertSort</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">DBwInsertSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span> <span class="nc">DBwInsertSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwInsertSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
 格納したデータを挿入ソートで並べ替えるクラス</p>
 <p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
 リストの中身を挿入ソートで昇順に並べ替えるメソッド</p>
