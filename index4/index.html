@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-4-2024426" class="md-skip">
+        <a href="#week-4-202552" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -327,25 +327,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：リストでスタックとキューを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    発展課題5：ポリモーフィズムを使う
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../index5/" class="md-nav__link">
-        Week 5
-      </a>
     </li>
   
 
@@ -427,6 +426,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    発展課題4：リストでスタックとキューを作る
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    発展課題5：ポリモーフィズムを使う
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -441,7 +454,7 @@
                 
 
 
-<h1 id="week-4-2024426">Week 4 (2024/4/26)<a class="headerlink" href="#week-4-2024426" title="Permanent link">&para;</a></h1>
+<h1 id="week-4-202552">Week 4 (2025/5/2)<a class="headerlink" href="#week-4-202552" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">今週の目的</p>
 <p>ファイルのデータをスタックやキューに格納する。</p>
@@ -455,10 +468,11 @@
 <li>キュー</li>
 <li>エンキュー</li>
 <li>デキュー</li>
+<li>ダックタイピング（ポリモーフィズム）</li>
 </ul>
 </div>
-<p>今回は連結リストを用いて<strong>スタック</strong>と<strong>キュー</strong>を実装し、<strong>プッシュ</strong>と<strong>ポップ</strong>、<strong>エンキュー</strong>と<strong>デキュー</strong>を行うプログラムを作成する。スタックは、リスト(配列)や連結リストと同じ順序付きのデータを格納するデータ構造で、データの入口と出口が同じものである。つまり、 <mark><em>データの挿入および取り出しが先頭か末尾のどちらか一方だけで行われる。</em></mark> スタックへのデータの追加をプッシュ、スタックからのデータの取り出しをポップという。最後に追加したデータから取り出されるため、 <strong>LIFO(Last-In First-Out)</strong> とも呼ばれる。</p>
-<p>一方、キューは、配列や連結リストと同じ順序付きのデータを格納するデータ構造で、データの入口と出口が異なるものである。つまり、 <mark><em>データが先頭に挿入されるのであれば、末尾からデータが取り出され、データが末尾に挿入されるのであれば、先頭からデータが取り出される。</em></mark> キューへのデータの追加をエンキュー、キューからのデータの取り出しをデキューという。最初に追加したデータから取り出されるため、<strong>FIFO(First-In First-Out)</strong>とも呼ばれる。</p>
+<p>今回は連結リストを用いて<strong>スタック</strong>と<strong>キュー</strong>を実装し、<strong>プッシュ</strong>と<strong>ポップ</strong>、<strong>エンキュー</strong>と<strong>デキュー</strong>を行うプログラムを作成する。スタックは、リスト(配列)や連結リストと同じ順序付きのデータを格納するデータ構造で、データの入口と出口が同じものである。つまり、 <mark><em>データの挿入および取り出しが先頭か末尾のどちらか一方だけで行われる。</em></mark> スタックへのデータの追加を<strong>プッシュ</strong>、スタックからのデータの取り出しを<strong>ポップ</strong>という。最後に追加したデータから取り出されるため、 <strong>LIFO(Last-In First-Out)</strong> とも呼ばれる。</p>
+<p>一方、キューは、リストや連結リストと同じ順序付きのデータを格納するデータ構造で、データの入口と出口が異なるものである。つまり、 <mark><em>データが先頭に挿入されるのであれば、末尾からデータが取り出され、データが末尾に挿入されるのであれば、先頭からデータが取り出される。</em></mark> キューへのデータの追加を<strong>エンキュー</strong>、キューからのデータの取り出しを<strong>デキュー</strong>という。最初に追加したデータから取り出されるため、<strong>FIFO(First-In First-Out)</strong>とも呼ばれる。</p>
 <p>本演習では連結リストを用いて、スタック(Stackインスタンス)にプッシュし、スタックからポップするプログラムと、キュー(Queueインスタンス)にエンキューし、キューからデキューするプログラムを作成する。</p>
 <p>今回作成する<code>Stack</code>クラスと<code>Queue</code>クラスの仕様は、以下の通りである</p>
 <div class="admonition example">
@@ -671,6 +685,128 @@
 </div>
 </div>
 </div>
+<h2 id="4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題4：リストでスタックとキューを作る<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>リストクラスの<code>append</code>メソッドと<code>pop</code>メソッドを用いて、<code>push</code>メソッドと<code>pop</code>メソッド、<code>display</code>メソッドを備えた<code>ListStack</code>クラスと，<code>enqueue</code>メソッドと<code>dequeue</code>メソッド、<code>display</code>メソッドを備えた<code>ListQueue</code>クラスを実装せよ。<code>display</code>メソッドは内部のリストを表示するものとし、<code>ListStack</code>クラスの<code>display</code>メソッドは「======スタックの先頭======」と「======スタックの底======」，<code>ListQueue</code>クラスの<code>display</code>メソッドは「======キューの先頭======」と「======キューの末尾======」を表示すること。なお、スタックはデータを出入り口を先頭、キューはデータの入り口を末尾、出口を先頭とする。</p>
+<p>今回作成する<code>ListStack</code>クラスと<code>ListQueue</code>クラスの仕様は、以下の通りである</p>
+<div class="admonition example">
+<p class="admonition-title">ListStackクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">ListStack</span><span class="p">()</span></code></strong><br />
+スタックのクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>list</strong>: データ格納用のリスト</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">push</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
+スタックにデータをプッシュするメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>data</strong>: スタックに挿入するデータ（<code>Stop</code>インスタンス）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">pop</span><span class="p">()</span></code></strong><br />
+スタックからデータをポップするメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>スタックの先頭に格納されていたデータ（<code>Stop</code>インスタンス）。スタックが空であれば<code>None</code>を返す。</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
+スタックの中身を表示するメソッド</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">ListQueueクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">ListQueue</span><span class="p">()</span></code></strong><br />
+キューのクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>list</strong>: データ格納用のリスト</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">enqueue</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
+キューにデータをエンキューするメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>data</strong>: キューに挿入するデータ</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">dequeue</span><span class="p">()</span></code></strong><br />
+キューからデータをデキューするメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>キューの先頭に格納されていたデータ(<code>Stop</code>インスタンス）。キューが空であれば<code>None</code>を返す。</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
+キューの中身を表示するメソッド</p>
+</div>
+<p>さらに、<code>kyotocitybus_stop.dat</code>からバス停データを読み込み、読み込んだ順に全てのデータをスタックにプッシュし、その後ポップしたデータを全て表示せよ。同様に、<code>kyotocitybus_stop.dat</code>からバス停データを読み込み、読み込んだ順に全てのデータをキューにエンキューし、その後デキューしたデータを全て表示せよ。また、実行例の通りに動くことを確認し、出力結果がスタックとキューで逆順になっていることに注意せよ。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>(途中省略)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>スタックが空でPOPできません。
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>(途中省略)
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>キューが空でDEQUEUEできません。
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="5"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題5：ポリモーフィズムを使う<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題１</a>のスタック（<code>Stack</code>クラス）と<a href="#4">発展課題4</a>の<code>ListStack</code>クラス、<a href="#3">課題3</a>のキュー（<code>Queue</code>クラス）と<a href="#4">発展課題4</a>の<code>ListQueue</code>クラスを用いて、<code>kyotocitybus_stop.dat</code>から読み込んだ全てのバス停データを、読み込んだ順に各スタックおよび各キューに格納せよ。その後、<code>display</code>メソッドを用いて、格納したデータを表示し比較せよ。なお、ポリモーフィズムを用いて実装すること。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p><strong>ポリモーフィズム</strong>とは、同じメソッド名を用いることで、呼び出し方法を変えずにオブジェクトを変えるだけで振る舞いを変えることである。スタックの各インスタンスをリストに格納し、<code>for</code>文で一つずつ異なる実装のスタックインスタンスを取り出して、ループ内でそれぞれの<code>push</code>メソッドを用いてスタックにデータを格納するとよい。キューも同様である。</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">実行例</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>======スタックの底======
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>(途中省略)
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>======スタックの先頭======
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>======スタックの先頭======
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>(途中省略)
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>======スタックの底======
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>======キューの先頭======
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>(途中省略)
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>======キューの末尾======
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>======キューの先頭======
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>(途中省略)
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>======キューの末尾======
+</code></pre></div>
+</div>
+</div>
+</div>
 
               
             </article>
@@ -705,13 +841,13 @@
       
       
         
-        <a href="../index5/" class="md-footer__link md-footer__link--next" aria-label="次: Week 5" rel="next">
+        <a href="../whatisclass/" class="md-footer__link md-footer__link--next" aria-label="次: 復習：クラスとは" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 次
               </span>
-              Week 5
+              復習：クラスとは
             </div>
           </div>
           <div class="md-footer__button md-icon">

@@ -19,7 +19,7 @@
     
     
       
-        <title>Week 9 (2024/6/14) - プログラミング演習2</title>
+        <title>Week 10 (2024/6/28) - プログラミング演習2</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-9-2024614" class="md-skip">
+        <a href="#week-10-2024628" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 9 (2024/6/14)
+              Week 10 (2024/6/28)
             
           </span>
         </div>
@@ -288,21 +288,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../index5/" class="md-nav__link">
-        Week 5
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
         復習：クラスとは
       </a>
@@ -353,28 +338,21 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    課題1：ヒープでデータを並べ替える
+    課題1：グラフを作る
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    課題2：データを並べ替える（マージソート）
+    課題2：グラフのエッジを削除する
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    課題3：データを並べ替える（クイックソート）
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    発展課題4：データの並べ替え時間を比較する
+    課題3：グラフのノードを削除する
   </a>
   
 </li>
@@ -393,59 +371,101 @@
                 
 
 
-<h1 id="week-9-2024614">Week 9 (2024/6/14)<a class="headerlink" href="#week-9-2024614" title="Permanent link">&para;</a></h1>
+<h1 id="week-10-2024628">Week 10 (2024/6/28)<a class="headerlink" href="#week-10-2024628" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">今週の目的</p>
-<p>分割統治法を用いてデータを昇順・降順に並べ替える。</p>
+<p>データをグラフに格納する。</p>
 </div>
 <div class="admonition check">
 <p class="admonition-title">今週のキーワード</p>
 <ul>
-<li>ヒープを用いたヒープソート</li>
-<li>分割統治法を用いたマージソートとクイックソート</li>
+<li>グラフのデータ構造（エッジリスト、隣接リスト）</li>
+<li>開放除去（エッジの削除）</li>
+<li>点の除去</li>
 </ul>
 </div>
-<p>今回はソートアルゴリズムとしてヒープソートと、マージソート、クイックソートを実装する。</p>
-<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：ヒープでデータを並べ替える<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>前回に作成した<code>DB</code>クラス（親クラス）を継承した<code>DBwHeapSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「ヒープソートアルゴリズム」で実装せよ。なお、<code>DB</code>クラスは<a download="def_db.py" href="../files/def_db.py"><code>def_db.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールの<code>DB</code>クラスをインポートして用いること。</p>
-<p>今回作成する<code>DBwHeapSort</code>クラスの仕様は、以下の通りである。</p>
+<p>今回はグラフのデータ構造の一つである隣接リストを実装する。 <mark><strong>隣接リスト</strong>とは、各ノードの近傍をリストとして表現したデータ構造である。</mark> <mark><strong>近傍</strong>とは同じノードに隣接するノード（以降、<strong>隣接ノード</strong>）の集合である。</mark> 隣接リストでは、各ノードの近傍を隣接ノードとそれに接続するエッジのペアのリストとして表現する。</p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：グラフを作る<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>隣接リストのデータ構造を実装した<code>Graph</code>クラスを定義せよ。なお、グラフの各ノードの近傍は、隣接ノードとそれに接続するエッジからなる<code>Neighbor</code>インスタンスのリストで実装する。また、全てのノードの近傍をまとめるのに辞書（キーがノードID、値が近傍）を用いよ。</p>
+<p><code>Graph</code>クラスと<code>Neighbor</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwHeapSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwHeapSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータをヒープソートで並べ替えるクラス</p>
+<p class="admonition-title">Graphクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="p">()</span></code></strong><br />
+隣接リストで実装したグラフのクラス</p>
 <p><strong>インスタンス変数</strong></p>
 <ul>
-<li><strong>heap</strong>: ヒープソートで用いるヒープ</li>
-<li><strong>queue</strong>: ヒープソートで用いるキュー</li>
+<li><strong>node_list</strong>: グラフ上のノードリスト(辞書：key=ノードID（文字列）, value=近傍（<code>Neighbor</code>インスタンスのリスト）)</li>
+<li><strong>num_nodes</strong>: グラフ上のノード数（整数）</li>
+<li><strong>num_edges</strong>: グラフ上のエッジ数（整数）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身をヒープソートで昇順に並べ替えるメソッド</p>
+<p><strong><code class="highlight"><span class="n">add_node</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code></strong><br />
+グラフにノードを追加するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>id</strong>: 追加するノードのID（文字列）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">add_directed_edge</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span></code></strong><br />
+ノード<code>sid</code>からノード<code>tid</code>にラベル<code>label</code>付きの有向エッジを追加するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>sid</strong>: 追加するエッジの始点のノードID（文字列）</li>
+<li><strong>tid</strong>: 追加するエッジの終点のノードID（文字列）</li>
+<li><strong>label</strong>: 追加するエッジのラベル（文字列）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">add_undirected_edge</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span></code></strong><br />
+ノード<code>sid</code>とノード<code>tid</code>にラベル<code>label</code>付きの無向エッジを追加するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>sid</strong>: 追加するエッジの一端のノードID（文字列）</li>
+<li><strong>tid</strong>: 追加するエッジの他端のノードID（文字列）</li>
+<li><strong>label</strong>: 追加するエッジのラベル（文字列）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">get_node_list</span><span class="p">()</span></code></strong><br />
+グラフのノードリストを返すメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>ノードリストを返す（辞書：key=ノードID（文字列）, value=近傍（<code>Neighbor</code>インスタンスのリスト））</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">get_neighborhood</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code></strong><br />
+ノード<code>id</code>の近傍を返すメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>id</strong>: 近傍取得の対象となるノードID（文字列）</li>
+</ul>
+<p><strong>返り値</strong></p>
+<ul>
+<li>近傍を返す（<code>Neighbor</code>インスタンスのリスト）ただし、指定した<code>id</code>のノードが無ければ<code>None</code>を返す</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">get_num_nodes</span><span class="p">()</span></code></strong><br />
+グラフのノード数を返すメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>ノード数を返す（整数）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">get_num_edges</span><span class="p">()</span></code></strong><br />
+グラフのエッジ数を返すメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>エッジ数を返す（整数）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">print_graph</span><span class="p">()</span></code></strong><br />
+グラフの隣接関係を表示するメソッド</p>
 </div>
-<p>なお、ヒープソートの実装には、<a download="def_heap.py" href="../files/def_heap.py"><code>def_heap.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールの<code>Heap</code>クラスとそのメソッドを用いる。<code>Heap</code>クラスの各メソッドの仕様は<a href="../index8/">Week8</a>を参照すること。</p>
-<!-- !!! example "Heapクラス"
-    **`#!python class Heap()`**
-    データを格納するヒープのクラス
-
-    **`#!python build_heap(list)`**  
-    リストの中身をヒープソートで昇順に並べ替えるメソッド
-
-    **パラメータ**
-
-    - **list**: ヒープに格納するデータのリスト（`Stop`インスタンスのリスト）
-
-    **`#!python delete_min()`**  
-    ヒープの最小値である根を削除するメソッド
-
-    **返り値**
-
-    - ヒープの根に格納されたデータ（`Stop`インスタンス） -->
-
-<p>まず、<u><code>build_heap</code>メソッドを用いて、<code>DBwHeapSort</code>インスタンス内のリストからヒープを構成し、その後、<code>delete_min</code>メソッドを繰り返して、値の小さいものから順にヒープから取り出す</u>。取り出したデータはキュー（<a download="def_queue_stack.py" href="../files/def_queue_stack.py"><code>def_queue_stack.py</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>モジュールを用いてよい）に<code>enqueue</code>し、全てのデータを<code>enqueue</code>した後に、<code>dequeue</code>でデータを取り出し<u><code>DBwHeapSort</code>インスタンス内のリストに再格納する</u>。</p>
-<p>最後に、実装した<code>DBwHeapSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<div class="admonition example">
+<p class="admonition-title">Neighborクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">Neighbor</span><span class="p">()</span></code></strong><br />
+隣接ノードのクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>id</strong>: 隣接ノードのID（文字列）</li>
+<li><strong>label</strong>: 隣接ノードと接続するエッジのラベル</li>
+</ul>
+</div>
+<p>さらに、実装した<code>Graph</code>クラスのインスタンスを用いて、<a download="kyotocitybus_line.dat" href="../files/kyotocitybus_line.dat"><code>kyotocitybus_line.dat</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>のデータを読み込み、グラフを生成せよ。<code>kyotocitybus_line.dat</code>は、「バス停ID バス停ID 京都市 路線名」のフォーマットで表されたエッジリストである。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week9_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week10_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -487,158 +507,162 @@
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_heap</span><span class="w"> </span><span class="kn">import</span> <span class="n">Heap</span>  <span class="c1"># Heapクラスの読み込み</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_queue_stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">Queue</span>  <span class="c1"># Queueクラスの読み込み</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">DB</span>  <span class="c1"># DBクラスの読み込み</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwHeapSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># ヒープソート用のクラス</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>  <span class="c1"># 親クラスの__init()__の呼び出し</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">heap</span> <span class="o">=</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープのインスタンスを生成</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューのインスタンスを生成</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># self.listからヒープを構築</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープの根を取得する</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="k">while</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># ヒープの根が取得できる限り繰り返す</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="nb">min</span><span class="p">)</span>  <span class="c1"># ヒープの根をキューに追加</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">heap</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># ヒープの根を取得する</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューからデータを取り出す</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="k">while</span> <span class="nb">min</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># キューからデータを取り出せる限り繰り返す</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span>  <span class="c1"># 取り出したデータをDBのリストに追加する</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="nb">min</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># キューからデータを取り出す</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">DBwHeapSort</span><span class="p">()</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="n">db</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>  <span class="c1"># Stopオブジェクトを各DBインスタンスに追加</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># ソート前の時間を記録（time()は現在時刻を返すメソッド）</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>    <span class="n">db</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>  <span class="c1"># データのソートを実行</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>  <span class="c1"># ソート後の時間からソート前の時間を引き実行時間計測</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="n">db</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">is_sorted</span><span class="p">():</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ソートが完了しました！</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span>  <span class="c1"># __class__はインスタンスのクラスを返し、__name__はそのクラスの名前を返す</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">Neighbor</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>  <span class="c1"># 隣接ノードのID</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>  <span class="c1"># 隣接ノードと接続するエッジのラベル</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="p">:</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># グラフ上のノードリスト(辞書：key=ノードID, value=近傍)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># グラフ上のノードの数</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_edges</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># グラフ上のエッジの数</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_node</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>  <span class="c1"># グラフにノードを追加するメソッド</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="k">if</span> <span class="nb">id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># ノードリストにidのノードが無ければ</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># ノードリストにidのノードを追加する．ただし、近傍はないので[]を代入</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">num_nodes</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># ノードの数をインクリメント</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_directed_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>  <span class="c1"># グラフに有向エッジを追加するメソッド</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">if</span> <span class="n">sid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>  <span class="c1"># 始点のノードが無ければ追加</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_node</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">if</span> <span class="n">tid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>  <span class="c1"># 終点のノードが無ければ追加</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">add_node</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[[</span><span class="n">____</span><span class="p">]]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Neighbor</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="n">label</span><span class="p">))</span>  <span class="c1"># 近傍リストに終点のノードを追加</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_edges</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># エッジの数をインクリメント</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_undirected_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>  <span class="c1"># グラフに無向エッジを追加するメソッド</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_directed_edge</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="p">[</span><span class="n">____</span><span class="p">],</span> <span class="n">label</span><span class="p">)</span>  <span class="c1"># 両方向にエッジを追加</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">add_directed_edge</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="p">[</span><span class="n">____</span><span class="p">],</span> <span class="n">label</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">num_edges</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># エッジの数が重複するのでデクリメント</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_node_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_neighborhood</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="k">if</span> <span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">:</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">node_list</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>            <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_num_nodes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_nodes</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_num_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_edges</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">print_graph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 隣接リストを表示するメソッド</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_node_list</span><span class="p">():</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>            <span class="k">for</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_neighborhood</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is connected to </span><span class="si">{}</span><span class="s1"> by </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">neighbor</span><span class="o">.</span><span class="n">label</span><span class="p">))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kyotocitybus_line.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">bus_network</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">bus_network</span><span class="o">.</span><span class="n">add_undirected_edge</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>  <span class="c1"># 無向エッジを追加</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ノード(バス停)の数は</span><span class="si">{}</span><span class="s1">個&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bus_network</span><span class="o">.</span><span class="n">get_num_nodes</span><span class="p">()))</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;エッジ(バス停間のリンク)の数は</span><span class="si">{}</span><span class="s1">個&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bus_network</span><span class="o">.</span><span class="n">get_num_edges</span><span class="p">()))</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">bus_network</span><span class="o">.</span><span class="n">print_graph</span><span class="p">()</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>（中略）
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ソートが完了しました！DBwHeapSortは0.03531908988952637秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ノード(バス停)の数は667個
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>エッジ(バス停間のリンク)の数は2307個
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ED01_1914 is connected to ED01_1925 by M1号系統.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>ED01_1914 is connected to ED01_1936 by 快速205号系統.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>（中略）
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ED01_1909 is connected to ED01_1741 by 11号系統.
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>ED01_1909 is connected to ED01_1750 by 11号系統.
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：データを並べ替える（マージソート）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題1</a>に作成した<code>DB</code>クラス（親クラス）を継承し、<code>DBwMergeSort</code>クラス（子クラス）を定義して、<code>sort</code>メソッドを「マージソートアルゴリズム」で実装せよ。</p>
-<p>今回作成する<code>DBwMergeSort</code>クラスの仕様は、以下の通りである。</p>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：グラフのエッジを削除する<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>Graph</code>クラスに、グラフのエッジを削除する<code>remove_undirected_edge</code>メソッドを定義せよ。なお、グラフのエッジは両端のノードとラベルで一意に定まるとする。ラベルが<code>None</code>の場合は、指定した両端のノードの間のエッジを全て削除すること。</p>
+<p><code>Graph</code>クラスの<code>remove_undirected_edge</code>メソッドの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwMergeSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwMergeSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータをマージソートで並べ替えるクラス</p>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong>
-リストの中身をマージソートで昇順に並べ替えるメソッド  </p>
+<p class="admonition-title">remove_undirected_edgeメソッド</p>
+<p><strong><code class="highlight"><span class="n">remove_undirected_edge</span><span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">tid</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code></strong><br />
+グラフからノード<code>sid</code>とノード<code>tid</code>の間のエッジを削除するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>sid</strong>: 削除するエッジの一端のノードID（文字列）</li>
+<li><strong>tid</strong>: 削除するエッジの他端のノードID（文字列）</li>
+<li><strong>label</strong>: 削除するエッジのラベル．省略可（文字列）</li>
+</ul>
 </div>
-<!-- `mergesort`メソッドを実行する
-
-**`#!python mergesort(l, r)`**  
-マージソートのアルゴリズムを実装したメソッド
-
-**パラメータ**
-
-- **l**: マージソートを行う対象区間の左端のインデックス（整数）
-- **r**: マージソートを行う対象区間の右端のインデックス（整数）
-
-**`#!python merge(l, m, r)`**  
-ソートされた二つのリストをマージするメソッド
-
-**パラメータ**
-
-- **l**: マージする前半のリストの左端のインデックス（整数）
-- **m**: マージする前半のリストの右端のインデックス（整数）
-- **r**: マージする後半のリストの右端のインデックス（整数） -->
-
-<p>最後に、実装したクラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<p>さらに、<a href="#1">課題１</a>で<code>kyotocitybus_line.dat</code>のデータを読み込んだ<code>Graph</code>インスタンスから、ED01_1914とED01_1925間でM1号系統のラベルが付与されたエッジを<code>remove_undirected_edge</code>メソッドで削除せよ。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p><a href="#1">課題１</a>で作成したグラフは<u>無向グラフのため、両向きのエッジ（始点と終点が逆のもの）が存在するので両方とも削除すること。</u>具体的には、指定した始点のノードの近傍から終点のノードを削除するだけでなく、終点のノードの近傍から始点のノードも削除すること。</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>（中略）
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ソートが完了しました！DBwMergeSortは0.013421058654785156秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ノード(バス停)の数は667個
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>エッジ(バス停間のリンク)の数は2306個
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ED01_1914 is connected to ED01_1936 by 快速205号系統.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>ED01_1914 is connected to ED01_1936 by 快速202号系統.
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>（中略）
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ED01_1909 is connected to ED01_1741 by 11号系統.
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>ED01_1909 is connected to ED01_1750 by 11号系統.
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：データを並べ替える（クイックソート）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題1</a>で作成した<code>DB</code>クラス（親クラス）を継承し、<code>DBwQuickSort</code>クラス（子クラス）を定義して、<code>sort</code>メソッドを「クイックソートアルゴリズム」で実装せよ。</p>
-<p>今回作成する<code>DBwQuickSort</code>クラスの仕様は、以下の通りである。</p>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：グラフのノードを削除する<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>Graph</code>クラスに、グラフのノードを削除する<code>remove_node</code>メソッドを定義せよ。
+なお、グラフのノードはノードIDで一意に定まるとする。</p>
+<p><code>Graph</code>クラスの<code>remove_node</code>メソッドの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwQuickSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwQuickSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータをクイックソートで並べ替えるクラス</p>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身をクイックソートで昇順に並べ替えるメソッド</p>
+<p class="admonition-title">remove_nodeメソッド</p>
+<p><strong><code class="highlight"><span class="n">remove_node</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code></strong><br />
+グラフからノード<code>id</code>を削除するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>id</strong>: 削除するノードのノードID（文字列）</li>
+</ul>
 </div>
-<!-- `quicksort`メソッドを実行する
-
-**`#!python quicksort(l, r)`**  
-クイックソートのアルゴリズムを実装したメソッド
-
-**パラメータ**
-
-- **l**: クイックソートを行う対象区間の左端のインデックス（整数）
-- **r**: クイックソートを行う対象区間の右端のインデックス（整数）
-
-**`#!python partition(l, r, pivot)`**  
-リストの`pivot`番目に格納されているデータを基準にして、リストをそれよりも小さいリストと大きいリストに分けるメソッド
-
-**パラメータ**
-
-- **l**: 分割するリストの左端のインデックス（整数）
-- **r**: 分割するリストの右端のインデックス（整数） -->
-
-<p>最後に、実装したクラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<p>さらに、<a href="#1">課題1</a>で<code>kyotocitybus_line.dat</code>のデータを読み込んだ<code>Graph</code>インスタンスから、ED01_1914のノードを<code>remove_node</code>メソッドで削除せよ。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p><u>ノードの削除だけでなく、接続しているエッジも全て削除しなければならないことに注意せよ。</u>具体的には、ノードリストから指定したノードIDに対応する要素を削除するだけでなく、隣接ノードの近傍内の当該ノードも削除すること。</p>
+</div>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>（中略）
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ソートが完了しました！DBwQuickSortは0.008417844772338867秒かかりました。
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題4：データの並べ替え時間を比較する<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>これまで実装した<code>DBwBubbleSort</code>クラス、<code>DBwSelectSort</code>クラス、<code>DBwInsertSort</code>クラス、<code>DBwHeapSort</code>クラス、<code>DBwMergeSort</code>クラス、<code>DBwQuickSort</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">実行例</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ソートが完了しました！DBwBubbleSortは0.6107010841369629秒かかりました。
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>ソートが完了しました！DBwSelectSortは0.3105299472808838秒かかりました。
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>ソートが完了しました！DBwInsertSortは0.1937861442565918秒かかりました。
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>ソートが完了しました！DBwHeapSortは0.024415016174316406秒かかりました。
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>ソートが完了しました！DBwMergeSortは0.009604930877685547秒かかりました。
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>ソートが完了しました！DBwQuickSortは0.009488821029663086秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ノード(バス停)の数は666個
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>エッジ(バス停間のリンク)の数は2297個
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ED01_1915 is connected to ED01_1916 by 59号系統.
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ED01_1915 is connected to ED01_1916 by 12号系統.
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>（中略）
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ED01_1909 is connected to ED01_1741 by 11号系統.
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ED01_1909 is connected to ED01_1750 by 11号系統.
 </code></pre></div>
 </div>
 </div>

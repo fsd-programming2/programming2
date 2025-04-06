@@ -19,7 +19,7 @@
     
     
       
-        <title>Week 7 (2024/5/31) - プログラミング演習2</title>
+        <title>Week 8 (2024/6/7) - プログラミング演習2</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-7-2024531" class="md-skip">
+        <a href="#week-8-202467" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 7 (2024/5/31)
+              Week 8 (2024/6/7)
             
           </span>
         </div>
@@ -288,21 +288,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../index5/" class="md-nav__link">
-        Week 5
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
         復習：クラスとは
       </a>
@@ -353,21 +338,21 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    課題1：データを並べ替える（バブルソート）
+    課題1：ヒープにデータを挿入する
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    課題2：データを並べ替える（選択ソート）
+    課題2：最小値を取り出す
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    課題3：データを並べ替える（挿入ソート）
+    課題3：ヒープを作る
   </a>
   
 </li>
@@ -386,69 +371,58 @@
                 
 
 
-<h1 id="week-7-2024531">Week 7 (2024/5/31)<a class="headerlink" href="#week-7-2024531" title="Permanent link">&para;</a></h1>
+<h1 id="week-8-202467">Week 8 (2024/6/7)<a class="headerlink" href="#week-8-202467" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">今週の目的</p>
-<p>データを昇順・降順に並べ替える。</p>
+<p>データをヒープに格納し、ヒープの基本的な操作を行う。</p>
 </div>
 <div class="admonition check">
 <p class="admonition-title">今週のキーワード</p>
 <ul>
-<li>二重ループ</li>
-<li>値の入れ換え（スワップ）</li>
-<li>バブルソート、選択法、挿入法</li>
+<li>リストによる完全二分木の実装</li>
+<li>シフトアップ、シフトダウンによるヒープ再構築</li>
 </ul>
 </div>
-<p>今回はアルゴリズムの実装として、データ列を並べ替える（ソート）プログラムを実装する。</p>
-<p>具体的には、隣同士を比較して入れ替えていく<strong>バブルソート</strong>、最小値もしくは最大値を見つけて左端と入れ替える<strong>選択法</strong>、整列済みのデータ列にデータを挿入していく<strong>挿入法</strong>を実装する。</p>
-<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：データを並べ替える（バブルソート）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>データをリストに格納する<code>add</code>メソッドと、そのリストを表示する<code>display</code>メソッド、リストの件数を返す<code>count</code>メソッド、データを昇順に並べ替える<code>sort</code>メソッド、データが昇順にソートされているか確認する<code>is_sorted</code>メソッドを備えた<code>DB</code>クラス（親クラス）を定義せよ。</p>
-<p><code>DB</code>クラスの仕様は、以下の通りである。</p>
+<p>今回はヒープソートの準備として、<strong>ヒープ</strong>と呼ばれるデータ構造を実装する。 <mark><em>ヒープとはヒープ条件を満たす</em><strong>完全二分木</strong><em>（必ず２個以下の子を持つ左詰めの木構造）</em></mark> をいう。 <mark><strong>ヒープ条件</strong>とは<em>ある節の値がその子孫のどの節よりも小さいこと</em></mark> である。つまり、どの節も自分の親よりも値が大きいことである。</p>
+<p>このヒープの基本操作である<code>insert</code>（節の挿入）、<code>delete_min</code>（根の削除）、<code>build_heap</code>（ヒープの構成）の３つを実装する。</p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：ヒープにデータを挿入する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>データをヒープに挿入する<code>insert</code>メソッドとヒープを表示する<code>show_tree</code>メソッドを備えた<code>Heap</code>クラスを実装せよ。<code>insert</code>メソッドは、<u>データを格納した新しい節をヒープの最後に挿入し、その後、<code>shift_up</code>メソッドを用いて挿入した節を適切な位置（ヒープ条件を満たす位置）まで押し上げる</u>。</p>
+<p><code>Heap</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">()</span></code></strong><br />
-格納したデータを並べ替えるクラス</p>
+<p class="admonition-title">Heapクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">Heap</span><span class="p">()</span></code></strong><br />
+データを格納するヒープのクラス</p>
 <p><strong>インスタンス変数</strong></p>
 <ul>
-<li><strong>list</strong>: データ格納用のリスト</li>
+<li><strong>list</strong>: データ格納用のリスト(リスト)。0番目は使わないのでダミーデータ（e.g. 0など）を格納する。</li>
+<li><strong>size</strong>: ヒープのサイズ（整数）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
-データをリストに格納するメソッド</p>
+<p><strong><code class="highlight"><span class="n">insert</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
+データをヒープに格納するメソッド</p>
 <p><strong>パラメータ</strong></p>
 <ul>
 <li><strong>data</strong>: 格納するデータ（<code>Stop</code>インスタンス）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
-リストの中身を表示するメソッド</p>
-<p><strong><code class="highlight"><span class="n">count</span><span class="p">()</span></code></strong><br />
-リストの件数を数えるメソッド</p>
+<p><strong><code class="highlight"><span class="n">shift_up</span><span class="p">(</span><span class="n">num</span><span class="p">)</span></code></strong><br />
+ヒープの<code>num</code>番目のノードをシフトアップするメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>num</strong>: シフトアップするデータのインデックス（整数）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">show_tree</span><span class="p">()</span></code></strong><br />
+ヒープの中身を木構造で表示するメソッド</p>
+<p><strong><code class="highlight"><span class="n">is_heap</span><span class="p">()</span></code></strong><br />
+ヒープの中身がヒープ条件を満たしているか確認するメソッド</p>
 <p><strong>返り値</strong></p>
 <ul>
-<li>リストに格納されていたデータの件数を返す（整数）</li>
-</ul>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身を昇順に並べ替えるメソッド</p>
-<p><strong><code class="highlight"><span class="n">is_sorted</span><span class="p">()</span></code></strong><br />
-リストの中身が昇順に並んでいるか確認するメソッド</p>
-<p><strong>返り値</strong></p>
-<ul>
-<li>データが昇順に並んでいれば<code>True</code>、そうでなければ<code>False</code>を返す（ブール値）</li>
+<li>ヒープ条件を満たしていれば<code>True</code>、そうでなければ<code>False</code>を返す（ブール値）</li>
 </ul>
 </div>
-<p>その後、<code>DB</code>クラスを継承した<code>DBwBubbleSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「バブルソートアルゴリズム」で実装せよ。</p>
-<p><code>DBwBubbleSort</code>クラスの仕様は、以下の通りである。</p>
-<div class="admonition example">
-<p class="admonition-title">DBwBubbleSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータをバブルソートで並べ替えるクラス</p>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身をバブルソートで昇順に並べ替えるメソッド</p>
-</div>
-<p>最後に、実装した<code>DBwBubbleSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<p>さらに、<a download="allkyotobus_stop.dat" href="../files/allkyotobus_stop.dat"><code>allkyotobus_stop.dat</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>からバス停データを読み込み、読み込んだ順にヒープにデータを<code>insert</code>し、最後にヒープを表示するよう、以下のプログラムの穴あき部分を埋めて、実行例の通りに動くことを確認せよ。なお、ヒープの各節に割り当てられる値はバス停データの経度とする。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week7_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week8_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -499,125 +473,132 @@
 <span class="normal"><a href="#__codelineno-0-49">49</a></span>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>  <span class="c1"># 再帰呼び出し回数の上限を変更するためのモジュール</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>  <span class="c1"># 再帰呼び出し回数の上限を10,000回に変更</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span>  <span class="c1"># DBクラスの定義</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># データを格納するリスト</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># データをリストの末尾に挿入</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データの件数を返す</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Heap</span><span class="p">:</span>  <span class="c1"># Heapクラスの定義</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># データを格納するリスト。0番目の要素は使わないため0を代入。</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">insert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># データをヒープの最後の要素の次に挿入</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># ヒープサイズを1増やす</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">shift_up</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 挿入した要素をシフトアップする</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">shift_up</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>  <span class="c1"># num番目の要素をシフトアップ</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="c1"># num番目の要素が根でなく、num番目の要素の親の方が大きい場合、親子を入れ替え</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="n">____</span><span class="p">]]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">num</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="n">____</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[[</span><span class="n">____</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">shift_up</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 入れ替え後に、引き続き新しい親のシフトアップ</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データを昇順にソートする</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">pass</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="k">return</span> <span class="kc">False</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># バブルソート用のクラス</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># データ件数を取得</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 右端から順に2番目の要素まで最大値を確定させていく</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 左端から順に比較＆入換えを繰り返す</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>  <span class="c1"># 左側の方が大きい場合</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># スワップ</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">show_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>  <span class="c1"># num番目の要素を根とする木（もしくは部分木）を表示するメソッド</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">if</span> <span class="n">num</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>  <span class="c1"># 要素numがヒープサイズの範囲内である限り</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">show_tree</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># 要素numの右子を根とする部分木を表示</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">num</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>            <span class="n">space</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="k">while</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 要素numの深さ分だけ半角スペース2個を連結</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="n">space</span> <span class="o">+=</span> <span class="s1">&#39;  &#39;</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>                <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">:</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">space</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">num</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>  <span class="c1"># 連結されたタブ（インデント）と要素numのバス停の名前と経度を表示</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">show_tree</span><span class="p">([</span><span class="n">____</span><span class="p">])</span> <span class="c1"># 要素numの左子を根とする部分木を表示</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_heap</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># ヒープ条件のチェック</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>                <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>        <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>
 <a id="__codelineno-0-40" name="__codelineno-0-40"></a>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">DBwBubbleSort</span><span class="p">()</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">heap</span> <span class="o">=</span> <span class="n">Heap</span><span class="p">()</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>  <span class="c1"># Stopインスタンスをdbに追加</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># ソート前の時間を記録（time()は現在時刻を返すメソッド）</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># データのソートを実行</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>  <span class="c1"># ソート後の時間からソート前の時間を引き、実行時間を計測</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">db</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">is_sorted</span><span class="p">():</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ソートが完了しました！</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span>  <span class="c1"># __class__はインスタンスのクラスを返し、__name__はそのクラスの名前を返す</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="c1"># StopインスタンスをHeapインスタンスに挿入</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">heap</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="k">if</span> <span class="n">heap</span><span class="o">.</span><span class="n">is_heap</span><span class="p">():</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">heap</span><span class="o">.</span><span class="n">show_tree</span><span class="p">([</span><span class="n">____</span><span class="p">])</span>  <span class="c1"># ヒープ全体を表示</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>（中略）
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ソートが完了しました！DBwBubbleSortは1.0563509464263916秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>                                                                中島橋:135.75151985
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                                                    大住浜:135.74934167
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                                                                竹田駅西口:135.75571764
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>（中略）
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>下夜久野駅前:134.99883496
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>（中略）
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>                                                                   下三栖:135.75017041
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                                                                横大路車庫前:135.74386927
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>                                                                   出町柳駅前:135.7730189
 </code></pre></div>
 </div>
 </div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">if __name__ == '__main__':とは？</p>
-<p>プログラムで定義されたクラス（たとえば<code>DB</code>クラス）や関数を他のプログラムにインポートすると、インポートしたクラスや関数だけでなく、<mark>そのプログラム全体が読み込まれ実行されます。</mark></p>
-<p>クラス定義や関数定義のみ書かれたプログラムであれば問題ありませんが、それらを使った処理まで書かれていると、それらが実行されてしまいます。たとえば、<code>week7_1.py</code>の<code>DB</code>クラスのみをインポート（<code>from week7_1 import DB</code>）して、<code>DB</code>クラスを継承した<code>DBwSelectSort</code>クラスを実装しようとすると、<code>DBwBubbleSort</code>インスタンスを生成して、データを追加しソートして結果を表示する処理も実行されるわけです。</p>
-<p>プログラムをモジュールとしてインポートしている（<code>from week7_1 import DB</code>）のか、プログラムを直接実行している（<code>python week7_1.py</code>）のかを区別するために<code>__name__</code>という特殊なグローバル変数があります。<code>__name__</code>の値がモジュール名の場合（<code>week7_1</code>）は、インポートしているときの実行を表し、<code>__name__</code>の値が<code>'main'</code>の場合は、プログラムを直接実行していることを表しています。</p>
-<p>したがって、<code class="highlight"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span></code>と書くと、そのプログラムがモジュールとして他のプログラムにインポートされたときに、<code class="highlight"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span></code>以下の処理をスキップすることができます。</p>
-</div>
-<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：データを並べ替える（選択ソート）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題1</a>で作成したDBクラス（親クラス）を継承した<code>DBwSelectSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「選択ソートアルゴリズム」で実装せよ。</p>
-<p><code>DBwSelectSort</code>クラスの仕様は、以下の通りである。</p>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：最小値を取り出す<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>Heap</code>クラスに、最小値を格納した根を削除して取り出す<code>delete_min</code>メソッド追加せよ。<code>delete_min</code>メソッドでは、<u>根の削除後に根に格納された値を返し、ヒープの最後尾の要素を根に移動させる</u>こと。ただし、この移動によって木構造がヒープ条件を満たさなくなるため、<u><code>shift_down</code>メソッドを用いて根を適切な位置（ヒープ条件を満たす位置）まで押し下げる</u>。</p>
+<p><code>Heap</code>クラスの<code>delete_min</code>メソッドおよび<code>shift_down</code>メソッドの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwSelectSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwSelectSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータを選択ソートで並べ替えるクラス</p>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身を選択ソートで昇順に並べ替えるメソッド</p>
+<p class="admonition-title">delete_minメソッドとshift_downメソッド</p>
+<p><strong><code class="highlight"><span class="n">delete_min</span><span class="p">()</span></code></strong><br />
+ヒープの最小値である根を削除するメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>ヒープの根に格納されたデータ（<code>Stop</code>インスタンス）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">shift_down</span><span class="p">(</span><span class="n">num</span><span class="p">)</span></code></strong><br />
+ヒープの<code>num</code>番目のノードをシフトダウンするメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>num</strong>: シフトダウンするデータのインデックス（整数）</li>
+</ul>
 </div>
-<p>最後に、実装した<code>DBwSelectSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
+<p>さらに、<a href="#1">課題1</a>で<code>allkyotobus_stop.dat</code>のバス停データから構築したヒープを用いて<code>delete_min</code>メソッドを３回実行し、最西から３つのバス停が取得できることを確認せよ。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>（中略）
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ソートが完了しました！DBwSelectSortは0.7865409851074219秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>最西のバス停の下夜久野駅前(ID:ED01_85)の緯度経度は(35.32033486, 134.99883496)です。
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>最西のバス停の畑口(ID:ED01_86)の緯度経度は(35.32009052, 135.00174923)です。
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>最西のバス停の上梅谷(ID:ED01_3814)の緯度経度は(35.32132338, 135.02203255)です。
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：データを並べ替える（挿入ソート）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題1</a>で作成した<code>DB</code>クラス（親クラス）を継承した<code>DBwInsertSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを挿入ソートアルゴリズムで実装せよ。</p>
-<p><code>DBwInsertSort</code>クラスの仕様は、以下の通りである。</p>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：ヒープを作る<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>Heap</code>クラスに、与えられたリストからヒープを構築する<code>build_heap</code>メソッドを追加せよ。ただし、<code>insert</code>メソッドを繰り返して一つずつデータを追加しヒープを構築した課題１とは違い、<u>与えられたリストからヒープを構成する</u>こと。</p>
+<p><code>Heap</code>クラスの<code>build_heap</code>メソッドの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwInsertSortクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwInsertSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータを挿入ソートで並べ替えるクラス</p>
-<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
-リストの中身を挿入ソートで昇順に並べ替えるメソッド</p>
+<p class="admonition-title">build_heapメソッド</p>
+<p><strong><code class="highlight"><span class="n">build_heap</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span></code></strong><br />
+<code>list</code>を基にヒープを構築するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>list</strong>: ヒープに格納するデータのリスト（<code>Stop</code>インスタンスのリスト）</li>
+</ul>
 </div>
-<p>最後に、これまで実装した<code>DBwBubbleSort</code>クラス、<code>DBwSelectSort</code>クラス、<code>DBwInsertSort</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>リストの中央の節が、ヒープの最後尾の節の親であることに着目して、そこから<code>shift_down</code>を用いて部分木をヒープに再構成する。この構成を根まで繰り返し、ボトムアップにヒープを構築するとよい。</p>
+</div>
+<p>さらに、<code>allkyotobus_stop.dat</code>から読み込んだバス停データを、読み込んだ順にリストに追加した後、<code>build_heap</code>メソッドでヒープを構築して、ヒープを表示するよう実装せよ。ヒープの構成が<a href="#1">課題1</a>と異なるがヒープ条件を満たしていることを確認せよ。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ソートが完了しました！DBwBubbleSortは1.0725622177124023秒かかりました。
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ソートが完了しました！DBwSelectSortは0.8025329113006592秒かかりました。
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ソートが完了しました！DBwInsertSortは0.449016809463501秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>                                                                中島橋:135.75151985
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>                                                        大住浜:135.74934167
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                                                                上賀茂石計町:135.76040489
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>（中略）
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>下夜久野駅前:134.99883496
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>（中略）
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>                                                                        横大路車庫前:135.74386927
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>                                                                クレイン京都:135.7194435
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>                                                                        上賀茂松本町:135.76329587
 </code></pre></div>
 </div>
 </div>

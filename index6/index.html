@@ -19,7 +19,7 @@
     
     
       
-        <title>Week 6 (2024/5/24) - プログラミング演習2</title>
+        <title>Week 7 (2024/5/31) - プログラミング演習2</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-6-2024524" class="md-skip">
+        <a href="#week-7-2024531" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 6 (2024/5/24)
+              Week 7 (2024/5/31)
             
           </span>
         </div>
@@ -288,21 +288,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../index5/" class="md-nav__link">
-        Week 5
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
         復習：クラスとは
       </a>
@@ -353,21 +338,21 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    課題1：先頭からデータを検索する
+    課題1：データを並べ替える（バブルソート）
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    課題2：先頭からデータを検索する（再帰）
+    課題2：データを並べ替える（選択ソート）
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    課題3：二分探索でデータを検索する
+    課題3：データを並べ替える（挿入ソート）
   </a>
   
 </li>
@@ -386,56 +371,69 @@
                 
 
 
-<h1 id="week-6-2024524">Week 6 (2024/5/24)<a class="headerlink" href="#week-6-2024524" title="Permanent link">&para;</a></h1>
+<h1 id="week-7-2024531">Week 7 (2024/5/31)<a class="headerlink" href="#week-7-2024531" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">今週の目的</p>
-<p>再帰呼び出しを用いてデータを検索する。</p>
+<p>データを昇順・降順に並べ替える。</p>
 </div>
 <div class="admonition check">
 <p class="admonition-title">今週のキーワード</p>
 <ul>
-<li>再帰呼び出し</li>
-<li>継承</li>
+<li>二重ループ</li>
+<li>値の入れ換え（スワップ）</li>
+<li>バブルソート、選択法、挿入法</li>
 </ul>
 </div>
-<p>今回はアルゴリズムの実装として、データ列から任意のデータを検索するプログラムを実装する。</p>
-<p>具体的には、 <mark><em>先頭から順にデータを探す</em><strong>線形探索</strong></mark> と、<mark><em>中央値と比較して探索空間を半分割していく</em><strong>二分探索</strong></mark> を実装する。なお、線形探索はループを用いたものと再帰呼び出しを用いたものを実装し、二分探索は再帰呼び出しを用いたものを実装する。</p>
-<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：先頭からデータを検索する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>データをリストに格納する<code>add</code>メソッドを備えた<code>DB</code>クラスを定義せよ。</p>
-<p>今回作成する<code>DB</code>クラスの仕様は、以下の通りである。</p>
+<p>今回はアルゴリズムの実装として、データ列を並べ替える（ソート）プログラムを実装する。</p>
+<p>具体的には、隣同士を比較して入れ替えていく<strong>バブルソート</strong>、最小値もしくは最大値を見つけて左端と入れ替える<strong>選択法</strong>、整列済みのデータ列にデータを挿入していく<strong>挿入法</strong>を実装する。</p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：データを並べ替える（バブルソート）<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>データをリストに格納する<code>add</code>メソッドと、そのリストを表示する<code>display</code>メソッド、リストの件数を返す<code>count</code>メソッド、データを昇順に並べ替える<code>sort</code>メソッド、データが昇順にソートされているか確認する<code>is_sorted</code>メソッドを備えた<code>DB</code>クラス（親クラス）を定義せよ。</p>
+<p><code>DB</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
 <p class="admonition-title">DBクラス</p>
 <p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">()</span></code></strong><br />
-格納したデータを処理（探索・ソート等）するクラス</p>
+格納したデータを並べ替えるクラス</p>
+<p><strong>インスタンス変数</strong></p>
+<ul>
+<li><strong>list</strong>: データ格納用のリスト</li>
+</ul>
 <p><strong><code class="highlight"><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
-データを格納するメソッド</p>
+データをリストに格納するメソッド</p>
 <p><strong>パラメータ</strong></p>
 <ul>
 <li><strong>data</strong>: 格納するデータ（<code>Stop</code>インスタンス）</li>
 </ul>
-</div>
-<p>その後、<code>DB</code>クラスを継承した<code>DBwLinerSearch</code>クラスを定義し、バス停IDからバス停名を検索する<code>search</code>メソッドを実装せよ。なお、<code>search</code>メソッドはループを用いた線形探索アルゴリズムで実装すること。</p>
-<p>今回作成する<code>DBwLinerSearch</code>クラスの仕様は、以下の通りである。</p>
-<div class="admonition example">
-<p class="admonition-title">DBwLinerSearchクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwLinerSearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータを線形探索するクラス。</p>
-<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
-格納したデータを線形探索するメソッド</p>
-<p><strong>パラメータ</strong></p>
-<ul>
-<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
-</ul>
+<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
+リストの中身を表示するメソッド</p>
+<p><strong><code class="highlight"><span class="n">count</span><span class="p">()</span></code></strong><br />
+リストの件数を数えるメソッド</p>
 <p><strong>返り値</strong></p>
 <ul>
-<li>探索対象のバス停の名前（文字列）</li>
+<li>リストに格納されていたデータの件数を返す（整数）</li>
+</ul>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身を昇順に並べ替えるメソッド</p>
+<p><strong><code class="highlight"><span class="n">is_sorted</span><span class="p">()</span></code></strong><br />
+リストの中身が昇順に並んでいるか確認するメソッド</p>
+<p><strong>返り値</strong></p>
+<ul>
+<li>データが昇順に並んでいれば<code>True</code>、そうでなければ<code>False</code>を返す（ブール値）</li>
 </ul>
 </div>
-<p>最後に、実装した<code>DBwLinerSearch</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。なお、<a download="allkyotobus_stop.dat" href="../files/allkyotobus_stop.dat"><code>allkyotobus_stop.dat</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>をダウンロードすること。</p>
+<p>その後、<code>DB</code>クラスを継承した<code>DBwBubbleSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「バブルソートアルゴリズム」で実装せよ。</p>
+<p><code>DBwBubbleSort</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwBubbleSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータをバブルソートで並べ替えるクラス</p>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身をバブルソートで昇順に並べ替えるメソッド</p>
+</div>
+<p>最後に、実装した<code>DBwBubbleSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week6_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week7_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -470,120 +468,141 @@
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span> <span class="c1"># Stopクラスの読み込み</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span> <span class="c1"># 実行時間を計測するためのモジュール</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span> <span class="c1"># 再帰呼び出し回数の上限を変更するためのモジュール</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="c1"># 再帰呼び出し回数の上限を10000回に変更</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span> <span class="c1"># DBクラスの定義</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># データを格納するリスト</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">data</span><span class="p">)</span> <span class="c1"># データをリストの末尾に挿入</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwLinerSearch</span><span class="p">([</span><span class="n">____</span><span class="p">]):</span> <span class="c1"># 線形探索用のクラス</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">:</span> <span class="c1"># ループでリストの先頭からチェック</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="k">return</span> <span class="kc">None</span> <span class="c1"># ループを抜ければ、探しているデータはなし</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span>  <span class="c1"># Stopクラスの読み込み</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>  <span class="c1"># 実行時間を計測するためのモジュール</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span>  <span class="c1"># DBクラスの定義</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># データを格納するリスト</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># データをリストの末尾に挿入</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">:</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データの件数を返す</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ED01_1653&#39;</span><span class="p">,</span> <span class="s1">&#39;ED01_4089&#39;</span><span class="p">,</span> <span class="s1">&#39;ED01_5000&#39;</span><span class="p">]</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="n">db</span> <span class="o">=</span> <span class="n">DBwLinerSearch</span><span class="p">()</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span> <span class="c1"># StopオブジェクトをDBwLinerSearchのインスタンスに追加</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="c1"># 探索前の時間を記録</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">elapsed_time</span> <span class="o">=</span>  <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># 探索後の時間から探索前の時間を引き、実行時間を計測</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">です。</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span> <span class="c1"># 「オブジェクト名.__class__.__name__」でオブジェクトのクラス名を取得</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># データを昇順にソートする</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">pass</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">is_sorted</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>                <span class="k">return</span> <span class="kc">False</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwBubbleSort</span><span class="p">(</span><span class="n">DB</span><span class="p">):</span>  <span class="c1"># バブルソート用のクラス</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">sort</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># データ件数を取得</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 右端から順に2番目の要素まで最大値を確定させていく</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">([</span><span class="n">____</span><span class="p">]):</span>  <span class="c1"># 左端から順に比較＆入換えを繰り返す</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">:</span>  <span class="c1"># 左側の方が大きい場合</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>  <span class="c1"># スワップ</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>  <span class="c1"># モジュールとしてインポートされるときは実行しない</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">db</span> <span class="o">=</span> <span class="n">DBwBubbleSort</span><span class="p">()</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>  <span class="c1"># Stopインスタンスをdbに追加</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># ソート前の時間を記録（time()は現在時刻を返すメソッド）</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># データのソートを実行</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>  <span class="c1"># ソート後の時間からソート前の時間を引き、実行時間を計測</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">db</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">is_sorted</span><span class="p">():</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ソートが完了しました！</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span>  <span class="c1"># __class__はインスタンスのクラスを返し、__name__はそのクラスの名前を返す</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ID:ED01_1653は府立大学前です。DBwLinerSearchは1.4781951904296875e-05秒かかりました。
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ID:ED01_4089は京都駅前です。DBwLinerSearchは0.00016999244689941406秒かかりました。
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ID:ED01_5000はNoneです。DBwLinerSearchは0.00015616416931152344秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>（中略）
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>ソートが完了しました！DBwBubbleSortは1.0563509464263916秒かかりました。
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：先頭からデータを検索する（再帰）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題１</a>で作成した<code>DB</code>クラスを継承した<code>DBwRecursiveSearch</code>クラスを定義し、再帰呼び出しを用いて<code>search</code>メソッドの線形探索アルゴリズムを実装せよ。具体的には、<u>リストの先頭がクエリと一致しているかどうかを確認し、一致していればバス停名を返し、そうでなければ、2番目以降のデータ列に対して再帰的に検索を行う</u>。</p>
-<p>今回作成する<code>DBwRecursiveSearch</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition info">
+<p class="admonition-title">if __name__ == '__main__':とは？</p>
+<p>プログラムで定義されたクラス（たとえば<code>DB</code>クラス）や関数を他のプログラムにインポートすると、インポートしたクラスや関数だけでなく、<mark>そのプログラム全体が読み込まれ実行されます。</mark></p>
+<p>クラス定義や関数定義のみ書かれたプログラムであれば問題ありませんが、それらを使った処理まで書かれていると、それらが実行されてしまいます。たとえば、<code>week7_1.py</code>の<code>DB</code>クラスのみをインポート（<code>from week7_1 import DB</code>）して、<code>DB</code>クラスを継承した<code>DBwSelectSort</code>クラスを実装しようとすると、<code>DBwBubbleSort</code>インスタンスを生成して、データを追加しソートして結果を表示する処理も実行されるわけです。</p>
+<p>プログラムをモジュールとしてインポートしている（<code>from week7_1 import DB</code>）のか、プログラムを直接実行している（<code>python week7_1.py</code>）のかを区別するために<code>__name__</code>という特殊なグローバル変数があります。<code>__name__</code>の値がモジュール名の場合（<code>week7_1</code>）は、インポートしているときの実行を表し、<code>__name__</code>の値が<code>'main'</code>の場合は、プログラムを直接実行していることを表しています。</p>
+<p>したがって、<code class="highlight"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span></code>と書くと、そのプログラムがモジュールとして他のプログラムにインポートされたときに、<code class="highlight"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span></code>以下の処理をスキップすることができます。</p>
+</div>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：データを並べ替える（選択ソート）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成したDBクラス（親クラス）を継承した<code>DBwSelectSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを「選択ソートアルゴリズム」で実装せよ。</p>
+<p><code>DBwSelectSort</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwRecursiveSearchクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwRecursiveSearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータを再帰呼び出しを用いて線形探索するクラス。</p>
-<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
-格納したデータを再帰呼び出しを用いて線形探索するメソッド</p>
-<p><strong>パラメータ</strong></p>
-<ul>
-<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
-</ul>
-<p><strong>返り値</strong></p>
-<ul>
-<li>探索対象のバス停の名前（文字列）</li>
-</ul>
+<p class="admonition-title">DBwSelectSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwSelectSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータを選択ソートで並べ替えるクラス</p>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身を選択ソートで昇順に並べ替えるメソッド</p>
 </div>
-<div class="admonition hint">
-<p class="admonition-title">ヒント</p>
-<p>再帰呼び出し時に引数に与える値を変更しないと、基底ケースにたどり着かなくなり無限ループになることに留意せよ。今回の場合、リストの先頭がクエリと異なっていれば、次に探す空間はリストの2番目以降のデータである。</p>
-</div>
-<p>最後に、実装した<code>DBwRecursiveSearch</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。</p>
+<p>最後に、実装した<code>DBwSelectSort</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その結果と実行時間を表示せよ。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ID:ED01_1653は府立大学前です。DBwRecursiveSearchは0.001970052719116211秒かかりました。
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ID:ED01_4089は京都駅前です。DBwRecursiveSearchは0.039069175720214844秒かかりました。
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ID:ED01_5000はNoneです。DBwRecursiveSearchは0.023905038833618164秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>1: 下夜久野駅前(ID:ED01_85)のバス停の緯度経度は(35.32033486,134.99883496)です。
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>2: 畑口(ID:ED01_86)のバス停の緯度経度は(35.32009052,135.00174923)です。
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>（中略）
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>1849: 自治会館前(ID:ED01_2850)のバス停の緯度経度は(34.86017838,135.89218112)です。
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>1850: 緑苑坂東(ID:ED01_2851)のバス停の緯度経度は(34.86244101,135.89352647)です。
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>ソートが完了しました！DBwSelectSortは0.7865409851074219秒かかりました。
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：二分探索でデータを検索する<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題１</a>で作成した<code>DB</code>クラスを継承した<code>DBwBinarySearch</code>クラスを定義し、再帰呼び出しを用いた二分探索アルゴリズムで<code>search</code>メソッドを実装せよ。なお、バス停データのIDは"ED01_"に後続する数字が昇順でソートされていることとする。また、<u>ファイルから読み込んだ時点ではIDが文字列のため、数字の大小を比較するには、スライスを用いて"ED01_"以降の数字を切り出し、<code>int()</code>を用いて数値型に変換する必要がある</u>。具体的には<code>int(list[m].id[5:])</code>と記述する。</p>
-<p>今回作成する<code>DBwBinarySearch</code>クラスの仕様は、以下の通りである。</p>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：データを並べ替える（挿入ソート）<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題1</a>で作成した<code>DB</code>クラス（親クラス）を継承した<code>DBwInsertSort</code>クラス（子クラス）を定義し、<code>sort</code>メソッドを挿入ソートアルゴリズムで実装せよ。</p>
+<p><code>DBwInsertSort</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">DBwBinarySearchクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwBinarySearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
-格納したデータを二分探索するクラス。</p>
-<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
-格納したデータを二分探索するメソッド</p>
-<p><strong>パラメータ</strong></p>
-<ul>
-<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
-</ul>
-<p><strong>返り値</strong></p>
-<ul>
-<li>探索対象のバス停の名前（文字列）</li>
-</ul>
+<p class="admonition-title">DBwInsertSortクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwInsertSort</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータを挿入ソートで並べ替えるクラス</p>
+<p><strong><code class="highlight"><span class="n">sort</span><span class="p">()</span></code></strong><br />
+リストの中身を挿入ソートで昇順に並べ替えるメソッド</p>
 </div>
-<div class="admonition hint">
-<p class="admonition-title">ヒント</p>
-<p>クエリがリストの中央の要素より大きければ、次に探す空間はリストの後半のデータ列である。一方、クエリがリストの中央の要素より小さければ、次に探す空間はリストの前半のデータ列である。</p>
-</div>
-<p>最後に、これまで実装した<code>DBwLinerSearch</code>クラス、<code>DBwRecursiveSearch</code>クラス、<code>DBwBinarySearch</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
+<p>最後に、これまで実装した<code>DBwBubbleSort</code>クラス、<code>DBwSelectSort</code>クラス、<code>DBwInsertSort</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータをバス停の経度の小さい順（西から東に）に並べ替えて、その実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ID:ED01_1653は府立大学前です。DBwLinerSearchは1.0013580322265625e-05秒かかりました。
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ID:ED01_4089は京都駅前です。DBwLinerSearchは0.000102996826171875秒かかりました。
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ID:ED01_5000はNoneです。DBwLinerSearchは0.0001780986785888672秒かかりました。
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ID:ED01_1653は府立大学前です。DBwRecursiveSearchは0.001550912857055664秒かかりました。
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ID:ED01_4089は京都駅前です。DBwRecursiveSearchは0.041697025299072266秒かかりました。
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ID:ED01_5000はNoneです。DBwRecursiveSearchは0.02522110939025879秒かかりました。
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ID:ED01_1653は府立大学前です。DBwBinarySearchは2.5033950805664062e-05秒かかりました。
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ID:ED01_4089は京都駅前です。DBwBinarySearchは0.00015163421630859375秒かかりました。
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ID:ED01_5000はNoneです。DBwBinarySearchは1.4781951904296875e-05秒かかりました。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ソートが完了しました！DBwBubbleSortは1.0725622177124023秒かかりました。
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ソートが完了しました！DBwSelectSortは0.8025329113006592秒かかりました。
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ソートが完了しました！DBwInsertSortは0.449016809463501秒かかりました。
 </code></pre></div>
 </div>
 </div>

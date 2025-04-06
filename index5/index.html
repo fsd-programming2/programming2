@@ -19,7 +19,7 @@
     
     
       
-        <title>Week 5 - プログラミング演習2</title>
+        <title>Week 6 (2024/5/24) - プログラミング演習2</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#week-5-2024510" class="md-skip">
+        <a href="#week-6-2024524" class="md-skip">
           コンテンツにスキップ
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Week 5
+              Week 6 (2024/5/24)
             
           </span>
         </div>
@@ -286,83 +286,6 @@
 
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Week 5
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Week 5
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    課題1：リストでスタックを作る
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
-    課題2：リストでキューを作る
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    課題3：ポリモーフィズムを使う
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    発展課題4：継承やコンポジションを使う
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
   
     <li class="md-nav__item">
       <a href="../whatisclass/" class="md-nav__link">
@@ -415,28 +338,21 @@
       
         <li class="md-nav__item">
   <a href="#1" class="md-nav__link">
-    課題1：リストでスタックを作る
+    課題1：先頭からデータを検索する
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    課題2：リストでキューを作る
+    課題2：先頭からデータを検索する（再帰）
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#3" class="md-nav__link">
-    課題3：ポリモーフィズムを使う
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    発展課題4：継承やコンポジションを使う
+    課題3：二分探索でデータを検索する
   </a>
   
 </li>
@@ -455,50 +371,56 @@
                 
 
 
-<h1 id="week-5-2024510">Week 5 (2024/5/10)<a class="headerlink" href="#week-5-2024510" title="Permanent link">&para;</a></h1>
+<h1 id="week-6-2024524">Week 6 (2024/5/24)<a class="headerlink" href="#week-6-2024524" title="Permanent link">&para;</a></h1>
 <div class="admonition abstract">
 <p class="admonition-title">今週の目的</p>
-<p>ポリモーフィズムや継承を使ってコードを簡潔に記述する。</p>
+<p>再帰呼び出しを用いてデータを検索する。</p>
 </div>
 <div class="admonition check">
 <p class="admonition-title">今週のキーワード</p>
 <ul>
-<li>リスト操作</li>
-<li>ダックタイピング（ポリモーフィズム）</li>
+<li>再帰呼び出し</li>
+<li>継承</li>
 </ul>
 </div>
-<p>今回はリストを用いてスタックとキューを実装し、連結リストを用いたスタックとキューと併用する。</p>
-<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：リストでスタックを作る<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>リストクラスの<code>append</code>メソッドと<code>pop</code>メソッドを用いて、<code>push</code>メソッドと<code>pop</code>メソッド、<code>display</code>メソッドを備えた<code>ListStack</code>クラスを実装せよ。</p>
-<p>今回作成する<code>ListStack</code>クラスの仕様は、以下の通りである</p>
+<p>今回はアルゴリズムの実装として、データ列から任意のデータを検索するプログラムを実装する。</p>
+<p>具体的には、 <mark><em>先頭から順にデータを探す</em><strong>線形探索</strong></mark> と、<mark><em>中央値と比較して探索空間を半分割していく</em><strong>二分探索</strong></mark> を実装する。なお、線形探索はループを用いたものと再帰呼び出しを用いたものを実装し、二分探索は再帰呼び出しを用いたものを実装する。</p>
+<h2 id="1"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題1：先頭からデータを検索する<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>データをリストに格納する<code>add</code>メソッドを備えた<code>DB</code>クラスを定義せよ。</p>
+<p>今回作成する<code>DB</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">ListStackクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">ListStack</span><span class="p">()</span></code></strong><br />
-スタックのクラス</p>
-<p><strong>インスタンス変数</strong></p>
-<ul>
-<li><strong>list</strong>: データ格納用のリスト</li>
-</ul>
-<p><strong><code class="highlight"><span class="n">push</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
-スタックにデータをプッシュするメソッド</p>
+<p class="admonition-title">DBクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">()</span></code></strong><br />
+格納したデータを処理（探索・ソート等）するクラス</p>
+<p><strong><code class="highlight"><span class="n">add</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
+データを格納するメソッド</p>
 <p><strong>パラメータ</strong></p>
 <ul>
-<li><strong>data</strong>: スタックに挿入するデータ（<code>Stop</code>インスタンス）</li>
+<li><strong>data</strong>: 格納するデータ（<code>Stop</code>インスタンス）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">pop</span><span class="p">()</span></code></strong><br />
-スタックからデータをポップするメソッド</p>
+</div>
+<p>その後、<code>DB</code>クラスを継承した<code>DBwLinerSearch</code>クラスを定義し、バス停IDからバス停名を検索する<code>search</code>メソッドを実装せよ。なお、<code>search</code>メソッドはループを用いた線形探索アルゴリズムで実装すること。</p>
+<p>今回作成する<code>DBwLinerSearch</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwLinerSearchクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwLinerSearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータを線形探索するクラス。</p>
+<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
+格納したデータを線形探索するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
+</ul>
 <p><strong>返り値</strong></p>
 <ul>
-<li>スタックの先頭に格納されていたデータ（<code>Stop</code>インスタンス）。スタックが空であれば<code>None</code>を返す。</li>
+<li>探索対象のバス停の名前（文字列）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
-スタックの中身を表示するメソッド</p>
 </div>
-<p>さらに、<code>kyotocitybus_stop.dat</code>からバス停データを読み込み、読み込んだ順に全てのデータをスタックにプッシュし、その後ポップしたデータを全て表示するよう、以下のプログラムの穴あき部分を埋めてプログラムを完成させよ。また、実行例の通りに動くことを確認し、実行結果がデータファイルと逆順になっていることに注意せよ。</p>
+<p>最後に、実装した<code>DBwLinerSearch</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。なお、<a download="allkyotobus_stop.dat" href="../files/allkyotobus_stop.dat"><code>allkyotobus_stop.dat</code><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6z"/></svg></span></a>をダウンロードすること。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">プログラム</label><label for="__tabbed_1_2">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week5_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">week6_1.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
 <span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
@@ -533,167 +455,123 @@
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># Stopクラスのimport</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">ListStack</span><span class="p">():</span>  <span class="c1"># ListStackクラスの定義</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># データ格納用のインスタンス変数list(リスト)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>  <span class="c1"># スタックにデータをプッシュするメソッド</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Stop</span><span class="p">):</span>  <span class="c1"># dataがStopインスタンスかどうか判定</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Stopインスタンス以外はPUSHできません。&#39;</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 穴埋め問題用のプログラム</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">def_stop</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stop</span> <span class="c1"># Stopクラスの読み込み</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span> <span class="c1"># 実行時間を計測するためのモジュール</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span> <span class="c1"># 再帰呼び出し回数の上限を変更するためのモジュール</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="c1"># 再帰呼び出し回数の上限を10000回に変更</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">DB</span><span class="p">:</span> <span class="c1"># DBクラスの定義</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># データを格納するリスト</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">data</span><span class="p">)</span> <span class="c1"># データをリストの末尾に挿入</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># スタックからデータをポップするメソッド</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="k">if</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span> <span class="o">==</span> <span class="p">[]):</span>  <span class="c1"># リストが空かどうか判定</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;スタックが空でPOPできません。&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">]()</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># リストを先頭から表示するメソッド</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;======スタックの底======&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">)):</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>            <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;======スタックの先頭======&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;kyotocitybus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>  <span class="c1"># ファイルデータの読み込み</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="n">s</span> <span class="o">=</span> <span class="n">ListStack</span><span class="p">()</span>  <span class="c1"># スタックインスタンスの生成</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">s</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span>  <span class="c1"># Stopインスタンスを作成し、スタックにPUSH</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">(ID:</span><span class="si">{}</span><span class="s1">)のバス停の緯度経度は(</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">)です。&#39;</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># ループ処理</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c1"># データをPOPで取り出す</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">if</span> <span class="n">p</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[</span><span class="n">____</span><span class="p">]:</span>  <span class="c1"># データがPOPできる限り、以下の処理を実行</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">lng</span><span class="p">))</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># 取り出したデータがNoneであればループを出る</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">class</span><span class="w"> </span><span class="nc">DBwLinerSearch</span><span class="p">([</span><span class="n">____</span><span class="p">]):</span> <span class="c1"># 線形探索用のクラス</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">list</span><span class="p">:</span> <span class="c1"># ループでリストの先頭からチェック</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="n">query</span><span class="p">:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>                <span class="k">return</span> <span class="n">item</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="k">return</span> <span class="kc">None</span> <span class="c1"># ループを抜ければ、探しているデータはなし</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="n">fi</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;allkyotobus_stop.dat&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">lines</span> <span class="o">=</span> <span class="n">fi</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">queries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ED01_1653&#39;</span><span class="p">,</span> <span class="s1">&#39;ED01_4089&#39;</span><span class="p">,</span> <span class="s1">&#39;ED01_5000&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="n">db</span> <span class="o">=</span> <span class="n">DBwLinerSearch</span><span class="p">()</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">items</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="c1"># 1行を半角スペースで区切ってitemsリストに代入</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">db</span><span class="o">.</span><span class="p">[</span><span class="n">____</span><span class="p">](</span><span class="n">Stop</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">items</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span> <span class="n">items</span><span class="p">[</span><span class="mi">4</span><span class="p">:]))</span> <span class="c1"># StopオブジェクトをDBwLinerSearchのインスタンスに追加</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="k">for</span> <span class="n">query</span> <span class="ow">in</span> <span class="n">queries</span><span class="p">:</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="c1"># 探索前の時間を記録</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="n">elapsed_time</span> <span class="o">=</span>  <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="p">[</span><span class="n">____</span><span class="p">]</span>  <span class="c1"># 探索後の時間から探索前の時間を引き、実行時間を計測</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ID:</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">です。</span><span class="si">{}</span><span class="s2">は</span><span class="si">{}</span><span class="s2">秒かかりました。&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">elapsed_time</span><span class="p">))</span> <span class="c1"># 「オブジェクト名.__class__.__name__」でオブジェクトのクラス名を取得</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="n">fi</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>(途中省略)
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>スタックが空でPOPできません。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ID:ED01_1653は府立大学前です。DBwLinerSearchは1.4781951904296875e-05秒かかりました。
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>ID:ED01_4089は京都駅前です。DBwLinerSearchは0.00016999244689941406秒かかりました。
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>ID:ED01_5000はNoneです。DBwLinerSearchは0.00015616416931152344秒かかりました。
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：リストでキューを作る<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
-<p>リストの<code>append</code>メソッドと<code>pop</code>メソッドを用いて、<code>enqueue</code>メソッドと<code>dequeue</code>メソッド、<code>display</code>メソッドを備えた<code>ListQueue</code>クラスを実装せよ。<code>display</code>メソッドは内部のリストを先頭から表示するものとし、<a href="#1">課題1</a>のスタックの<code>display</code>メソッドと同様に「======キューの先頭======」と「======キューの末尾======」を表示すること。その際に、リストのどちら側がキューの先頭や末尾になるのか注意せよ。</p>
-<p>今回作成する<code>ListQueue</code>クラスの仕様は、以下の通りである</p>
+<h2 id="2"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題2：先頭からデータを検索する（再帰）<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題１</a>で作成した<code>DB</code>クラスを継承した<code>DBwRecursiveSearch</code>クラスを定義し、再帰呼び出しを用いて<code>search</code>メソッドの線形探索アルゴリズムを実装せよ。具体的には、<u>リストの先頭がクエリと一致しているかどうかを確認し、一致していればバス停名を返し、そうでなければ、2番目以降のデータ列に対して再帰的に検索を行う</u>。</p>
+<p>今回作成する<code>DBwRecursiveSearch</code>クラスの仕様は、以下の通りである。</p>
 <div class="admonition example">
-<p class="admonition-title">ListQueueクラス</p>
-<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">ListQueue</span><span class="p">()</span></code></strong><br />
-キューのクラス</p>
-<p><strong>インスタンス変数</strong></p>
-<ul>
-<li><strong>list</strong>: データ格納用のリスト</li>
-</ul>
-<p><strong><code class="highlight"><span class="n">enqueue</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></code></strong><br />
-キューにデータをエンキューするメソッド</p>
+<p class="admonition-title">DBwRecursiveSearchクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwRecursiveSearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータを再帰呼び出しを用いて線形探索するクラス。</p>
+<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
+格納したデータを再帰呼び出しを用いて線形探索するメソッド</p>
 <p><strong>パラメータ</strong></p>
 <ul>
-<li><strong>data</strong>: キューに挿入するデータ</li>
+<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">dequeue</span><span class="p">()</span></code></strong><br />
-キューからデータをデキューするメソッド</p>
 <p><strong>返り値</strong></p>
 <ul>
-<li>キューの先頭に格納されていたデータ(<code>Stop</code>インスタンス）。キューが空であれば<code>None</code>を返す。</li>
+<li>探索対象のバス停の名前（文字列）</li>
 </ul>
-<p><strong><code class="highlight"><span class="n">display</span><span class="p">()</span></code></strong><br />
-キューの中身を表示するメソッド</p>
 </div>
-<p>さらに、<code>kyotocitybus_stop.dat</code>からバス停データを読み込み、読み込んだ順にキューに全てのデータをエンキューし、その後デキューしたデータを全て表示するようプログラムを実装し、実行例の通りに動くことを確認せよ。<a href="#1">課題1</a>と異なり、実行結果がデータファイルと同順になっていることを確認せよ。</p>
+<div class="admonition hint">
+<p class="admonition-title">ヒント</p>
+<p>再帰呼び出し時に引数に与える値を変更しないと、基底ケースにたどり着かなくなり無限ループになることに留意せよ。今回の場合、リストの先頭がクエリと異なっていれば、次に探す空間はリストの2番目以降のデータである。</p>
+</div>
+<p>最後に、実装した<code>DBwRecursiveSearch</code>クラスのインスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>(途中省略)
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>キューが空でDEQUEUEできません。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ID:ED01_1653は府立大学前です。DBwRecursiveSearchは0.001970052719116211秒かかりました。
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>ID:ED01_4089は京都駅前です。DBwRecursiveSearchは0.039069175720214844秒かかりました。
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>ID:ED01_5000はNoneです。DBwRecursiveSearchは0.023905038833618164秒かかりました。
 </code></pre></div>
 </div>
 </div>
 </div>
-<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：ポリモーフィズムを使う<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
-<p><a href="#1">課題１</a>のスタック（<code>ListStack</code>クラス）と連結リストを用いたスタック（<a href="../index4/#1">第４回課題</a>の<code>Stack</code>クラス）、<a href="#2">課題２</a>のキュー（<code>ListQueue</code>クラス）と連結リストを用いたキュー（<a href="../index4/#3">第４回課題</a>の<code>Queue</code>クラス）を用いて、<code>kyotocitybus_stop.dat</code>から読み込んだ全てのバス停データを、読み込んだ順に各スタックおよび各キューに格納せよ。その後、<code>display</code>メソッドを用いて、格納したデータを表示し比較せよ。なお、ポリモーフィズムを用いて実装すること。</p>
+<h2 id="3"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>課題3：二分探索でデータを検索する<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<p><a href="#1">課題１</a>で作成した<code>DB</code>クラスを継承した<code>DBwBinarySearch</code>クラスを定義し、再帰呼び出しを用いた二分探索アルゴリズムで<code>search</code>メソッドを実装せよ。なお、バス停データのIDは"ED01_"に後続する数字が昇順でソートされていることとする。また、<u>ファイルから読み込んだ時点ではIDが文字列のため、数字の大小を比較するには、スライスを用いて"ED01_"以降の数字を切り出し、<code>int()</code>を用いて数値型に変換する必要がある</u>。具体的には<code>int(list[m].id[5:])</code>と記述する。</p>
+<p>今回作成する<code>DBwBinarySearch</code>クラスの仕様は、以下の通りである。</p>
+<div class="admonition example">
+<p class="admonition-title">DBwBinarySearchクラス</p>
+<p><strong><code class="highlight"><span class="k">class</span><span class="w"> </span><span class="nc">DBwBinarySearch</span><span class="p">()</span></code></strong> <em><code>DB</code>クラスのサブクラス</em><br />
+格納したデータを二分探索するクラス。</p>
+<p><strong><code class="highlight"><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span></code></strong><br />
+格納したデータを二分探索するメソッド</p>
+<p><strong>パラメータ</strong></p>
+<ul>
+<li><strong>query</strong>: 探索対象のバス停のID（文字列）</li>
+</ul>
+<p><strong>返り値</strong></p>
+<ul>
+<li>探索対象のバス停の名前（文字列）</li>
+</ul>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">ヒント</p>
-<p><strong>ポリモーフィズム</strong>とは、同じメソッド名を用いることで、呼び出し方法を変えずにオブジェクトを変えるだけで振る舞いを変えることである。スタックの各インスタンスをリストに格納し、<code>for</code>文で一つずつ異なる実装のスタックインスタンスを取り出して、ループ内でそれぞれの<code>push</code>メソッドを用いてスタックにデータを格納するとよい。キューも同様である。</p>
+<p>クエリがリストの中央の要素より大きければ、次に探す空間はリストの後半のデータ列である。一方、クエリがリストの中央の要素より小さければ、次に探す空間はリストの前半のデータ列である。</p>
 </div>
+<p>最後に、これまで実装した<code>DBwLinerSearch</code>クラス、<code>DBwRecursiveSearch</code>クラス、<code>DBwBinarySearch</code>クラスの各インスタンスを用いて、<code>allkyotobus_stop.dat</code>のデータからIDがED01_1653とED01_4089、ED01_5000のバス停を検索し、バス停名と実行時間を表示せよ。本課題は、実装が異なると実行速度が変わることを理解することが目的である。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">実行例</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>======スタックの底======
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>(途中省略)
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>======スタックの先頭======
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>======スタックの先頭======
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>(途中省略)
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>======スタックの底======
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>======キューの先頭======
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>(途中省略)
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>======キューの末尾======
-<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>======キューの先頭======
-<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>西賀茂車庫前(ID:ED01_1637)のバス停の緯度経度は(35.06385669,135.74499864)です。
-<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>神光院前(ID:ED01_1638)のバス停の緯度経度は(35.06134071,135.74395031)です。
-<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>大宮総門口町(ID:ED01_1639)のバス停の緯度経度は(35.05831804,135.74403767)です。
-<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>(途中省略)
-<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>京都会館美術館前(ID:ED01_2307)のバス停の緯度経度は(35.01363868,135.78107416)です。
-<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>京都駅前(ID:ED01_4089)のバス停の緯度経度は(34.98719397,135.75802795)です。
-<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>京都駅八条口(ID:ED01_4102)のバス停の緯度経度は(34.98401063,135.75866056)です。
-<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>======キューの末尾======
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>ID:ED01_1653は府立大学前です。DBwLinerSearchは1.0013580322265625e-05秒かかりました。
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>ID:ED01_4089は京都駅前です。DBwLinerSearchは0.000102996826171875秒かかりました。
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>ID:ED01_5000はNoneです。DBwLinerSearchは0.0001780986785888672秒かかりました。
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>ID:ED01_1653は府立大学前です。DBwRecursiveSearchは0.001550912857055664秒かかりました。
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>ID:ED01_4089は京都駅前です。DBwRecursiveSearchは0.041697025299072266秒かかりました。
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>ID:ED01_5000はNoneです。DBwRecursiveSearchは0.02522110939025879秒かかりました。
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ID:ED01_1653は府立大学前です。DBwBinarySearchは2.5033950805664062e-05秒かかりました。
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>ID:ED01_4089は京都駅前です。DBwBinarySearchは0.00015163421630859375秒かかりました。
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>ID:ED01_5000はNoneです。DBwBinarySearchは1.4781951904296875e-05秒かかりました。
 </code></pre></div>
 </div>
 </div>
-</div>
-<h2 id="4"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58 13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg></span>発展課題4：継承やコンポジションを使う<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p><a href="#3">課題３</a>で用いた<code>Stack</code>クラス、<code>ListStack</code>クラス、<code>Queue</code>クラス、<code>ListQueue</code>クラスにはコードの重複が多い。そこで、クラスの継承やコンポジションを用いてできる限りコードを再利用するように実装せよ。</p>
-<div class="admonition hint">
-<p class="admonition-title">ヒント</p>
-<p>あるクラスのメソッドやインスタンス変数全てを引き継いで拡張したクラスを作ることを<strong>継承</strong>と呼ぶ。また、元のクラスを<strong>親クラス</strong>、継承したクラスのことを<strong>子クラス</strong>と呼ぶ。各スタックの実装やキューの実装に共通するメソッドを括りだし、親クラスを定義するとよい。一方、<strong>コンポジション</strong>と は、あるクラスで別のクラスのインスタンスを取り込んでその機能を使うことをいう。連結リスト版のスタックとキューで連結リストの同じ機能（たとえば先頭の節の切り取り等）を使うのであれば、その機能をもつ連結リストクラスを定義し、スタッククラスとキュークラスそれぞれで連結リストクラスのインスタンスを取り込むとよい。</p>
 </div>
 
               
@@ -709,41 +587,6 @@
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="フッター">
-      
-        
-        <a href="../index4/" class="md-footer__link md-footer__link--prev" aria-label="前: Week 4" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                前
-              </span>
-              Week 4
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../whatisclass/" class="md-footer__link md-footer__link--next" aria-label="次: 復習：クラスとは" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                次
-              </span>
-              復習：クラスとは
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
